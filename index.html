@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王梓宇 · 个人作品集 · 电商运营 / 跨境电商运营助理</title>
+<meta name="description" content="王梓宇 — 21 岁，应届电商运营 / 跨境电商运营助理。一人公司运营工作台独立搭建者。">
+<style>
+  /* ========== 变量与基础 ========== */
+  :root{
+    --accent: #1e6fff;
+    --accent-2: #6d28d9;
+    --mint: #10b981;
+    --indigo: #6366f1;
+    --bg-grad: linear-gradient(135deg, #e0f2fe 0%, #ecfeff 35%, #d1fae5 100%);
+    --bg-grad-soft: linear-gradient(180deg, #e0f2fe 0%, #f0fdfa 60%, #ecfdf5 100%);
+    --card: #ffffff;
+    --card-soft: rgba(255,255,255,.72);
+    --ink: #0f172a;
+    --ink-2: #1e293b;
+    --sub: #64748b;
+    --line: rgba(15,23,42,.08);
+    --shadow-sm: 0 2px 6px rgba(15,23,42,.06);
+    --shadow-md: 0 8px 24px rgba(30,111,255,.10);
+    --shadow-lg: 0 18px 48px rgba(30,111,255,.18);
+    --radius-card: 16px;
+    --radius-pill: 999px;
+    --radius-tag: 8px;
+    --maxw: 1200px;
+    --header-h: 72px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);overflow-x:hidden}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Inter,Roboto,"Segoe UI",sans-serif;
+    color:var(--ink);
+    line-height:1.62;
+    font-size:15px;
+    background:var(--bg-grad);
+    background-attachment:fixed;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;width:100%;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;border:none;background:none;cursor:pointer;color:inherit}
+  ::selection{background:rgba(30,111,255,.18)}
+
+  /* ========== 容器 ========== */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  @media(max-width:720px){.wrap{padding:0 18px}}
+
+  /* ========== 顶部导航 ========== */
+  .nav-wrap{
+    position:sticky;top:14px;z-index:50;
+    margin:18px auto 0;max-width:1080px;padding:0 20px;
+  }
+  .nav{
+    display:flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border:1px solid rgba(255,255,255,.6);
+    box-shadow:var(--shadow-md);
+    border-radius:var(--radius-pill);
+    padding:7px 7px 7px 16px;
+    min-width:0;
+  }
+  .nav-brand{display:flex;align-items:center;gap:8px;font-weight:800;letter-spacing:.5px;flex-shrink:0}
+  .nav-brand .dot{
+    width:28px;height:28px;border-radius:50%;
+    background:conic-gradient(from 180deg at 50% 50%, var(--accent), var(--indigo), var(--mint), var(--accent));
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.6);
+  }
+  .nav-brand span{font-size:15px;color:var(--ink);white-space:nowrap}
+  .nav-menu{
+    display:flex;align-items:center;gap:2px;flex:1 1 auto;justify-content:center;
+    background:rgba(241,245,249,.6);
+    border-radius:var(--radius-pill);
+    padding:4px;
+    min-width:0;overflow:hidden;
+  }
+  .nav-menu a{
+    padding:8px 14px;border-radius:var(--radius-pill);font-size:13.5px;font-weight:600;color:var(--sub);
+    transition:.2s;white-space:nowrap;flex-shrink:0;
+  }
+  .nav-menu a:hover{color:var(--ink)}
+  .nav-menu a.active{background:#0f172a;color:#fff;padding:8px 16px}
+  .nav-cta{position:relative;flex-shrink:0}
+  .nav-cta .btn-primary{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:10px 16px;border-radius:var(--radius-pill);background:#0f172a;color:#fff;font-weight:700;font-size:13.5px;
+    transition:.2s;white-space:nowrap;
+  }
+  .nav-cta .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(15,23,42,.25)}
+  .nav-cta .dropdown{
+    position:absolute;right:0;top:calc(100% + 10px);min-width:200px;background:#fff;border-radius:14px;
+    box-shadow:0 18px 42px rgba(15,23,42,.18);padding:8px;display:none;
+    border:1px solid var(--line);
+  }
+  .nav-cta.open .dropdown{display:block}
+  .nav-cta .dropdown a{display:block;padding:10px 14px;border-radius:10px;font-size:13px;color:var(--ink)}
+  .nav-cta .dropdown a:hover{background:#f1f5f9}
+  .nav-toggle{display:none}
+
+  @media(max-width:980px){
+    .nav-wrap{padding:0 14px}
+    .nav-menu{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .nav-menu::-webkit-scrollbar{display:none}
+  }
+  @media(max-width:720px){
+    .nav{padding:6px 6px 6px 12px}
+    .nav-brand span{display:none}
+    .nav-menu{display:none}
+    .nav-cta{margin-left:auto}
+  }
+  @media(max-width:480px){
+    .nav-cta .btn-primary span.lbl{display:none}
+    .nav-cta .btn-primary{padding:10px 12px;font-size:12px}
+  }
+
+  /* ========== Hero ========== */
+  .hero{
+    position:relative;
+    padding:56px 0 100px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:center;
+    max-width:1200px;margin:0 auto;padding:0 28px;
+    position:relative;z-index:2;
+    min-width:0;
+  }
+  .hero-grid > *{min-width:0}
+  @media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:32px;padding:0 22px 24px}}
+  .hero-text, .hero-visual{max-width:100%}
+  .hero .intro{word-break:break-word;overflow-wrap:break-word}
+  @media(max-width:520px){
+    .hero{padding:36px 0 64px}
+    .hero h1{font-size:42px;line-height:1.06}
+    .hero .subtitle{font-size:15px}
+    .hero .intro{font-size:14.5px}
+    .chip{font-size:12px;padding:6px 11px}
+    .btn-dark,.btn-ghost{padding:11px 18px;font-size:13.5px}
+  }
+  @media(max-width:380px){
+    .hero h1{font-size:36px}
+  }
+
+  .hello-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.7);
+    padding:6px 14px;border-radius:var(--radius-pill);
+    font-size:12.5px;color:var(--sub);font-weight:600;letter-spacing:.4px;
+    box-shadow:var(--shadow-sm);
+  }
+  .hello-tag .star{color:#f59e0b}
+
+  .hero h1{
+    font-size:clamp(40px,8vw,92px);line-height:1.04;font-weight:800;letter-spacing:-1px;
+    margin:18px 0 6px;color:var(--ink);
+    word-break:keep-all;
+  }
+  .hero h1 .ink-line{
+    display:inline-block;position:relative;padding:0 .04em;white-space:nowrap;
+  }
+  .hero h1 .ink-line::after{
+    content:"";position:absolute;left:-4%;right:-4%;bottom:.12em;height:.28em;z-index:-1;
+    background:radial-gradient(closest-side, rgba(15,23,42,.85), rgba(15,23,42,.55) 40%, transparent 75%);
+    transform:skewX(-6deg) rotate(-1deg);
+    filter:blur(.4px);
+  }
+
+  .hero .subtitle{
+    display:inline-block;font-size:17px;font-weight:700;color:var(--accent);
+    margin-top:6px;padding:4px 12px;border-radius:6px;background:rgba(30,111,255,.1);
+  }
+
+  .hero .intro{color:var(--ink-2);font-size:16px;max-width:540px;margin-top:22px;line-height:1.7}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;max-width:560px}
+  .chip{
+    background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius-pill);padding:7px 14px;font-size:13px;font-weight:600;color:var(--ink-2);
+    box-shadow:var(--shadow-sm);white-space:nowrap;
+  }
+  .chip .em{color:var(--accent);font-weight:800;margin-right:5px}
+
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .btn-dark,.btn-ghost{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 22px;border-radius:var(--radius-pill);font-weight:700;font-size:14px;
+    transition:.2s;white-space:nowrap;
+  }
+  .btn-dark{background:#0f172a;color:#fff;box-shadow:0 8px 20px rgba(15,23,42,.22)}
+  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(15,23,42,.28)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn-ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+
+  .hero-mini{display:flex;align-items:center;gap:10px;margin-top:28px;color:var(--sub);font-size:13px;flex-wrap:wrap}
+  .hero-mini .quick{
+    display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);
+    padding:6px 10px;border-radius:8px;font-weight:600;color:var(--ink);white-space:nowrap;
+  }
+
+  /* 右侧装饰 */
+  .hero-visual{position:relative;min-height:520px;min-width:0;overflow:hidden}
+  @media(max-width:980px){.hero-visual{min-height:380px;max-width:520px;margin:0 auto;width:100%}}
+  .glow{
+    position:absolute;top:50%;left:50%;width:520px;height:520px;border-radius:50%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(closest-side, rgba(99,102,241,.55), rgba(16,185,129,.28) 50%, rgba(255,255,255,0) 75%);
+    filter:blur(8px);
+    z-index:0;
+  }
+  .bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.65);backdrop-filter:blur(8px);box-shadow:var(--shadow-sm)}
+  .bubble.b1{width:140px;height:140px;top:6%;left:8%;animation:float 7s ease-in-out infinite}
+  .bubble.b2{width:80px;height:80px;top:22%;right:6%;background:rgba(99,102,241,.25);animation:float 9s ease-in-out infinite reverse}
+  .bubble.b3{width:48px;height:48px;bottom:14%;left:30%;background:rgba(16,185,129,.25);animation:float 5s ease-in-out infinite}
+  .bubble.b4{width:24px;height:24px;top:60%;left:0;background:rgba(245,158,11,.5);animation:float 6s ease-in-out infinite reverse}
+  .bubble.b5{width:60px;height:60px;bottom:8%;right:14%;background:rgba(30,111,255,.18);animation:float 8s ease-in-out infinite}
+  @keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-18px)}
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:14px;box-shadow:0 14px 40px rgba(15,23,42,.15);
+    padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;
+    animation:float 6s ease-in-out infinite;
+  }
+  .float-card .ico{
+    width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:800;
+    background:linear-gradient(135deg,var(--accent),var(--indigo));
+  }
+  .float-card .ico.mint{background:linear-gradient(135deg,var(--mint),#34d399)}
+  .float-card .ico.gold{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+  .float-card .t{font-weight:800;color:var(--ink);font-size:13px;line-height:1.2}
+  .float-card .s{color:var(--sub);font-size:11.5px;margin-top:2px}
+  .fc-main{top:14%;left:6%;width:240px}
+  .fc-1{top:50%;right:6%;width:130px;animation-delay:1.2s}
+  .fc-2{bottom:14%;left:18%;width:120px;animation-delay:.6s}
+  .fc-3{top:38%;right:30%;width:110px;animation-delay:1.8s}
+
+  @media(max-width:980px){
+    .fc-3,.fc-2{display:none}
+  }
+  @media(max-width:520px){
+    .fc-1,.fc-2,.fc-3{display:none}
+    .glow{width:360px;height:360px}
+  }
+
+  /* ========== 通用分区 ========== */
+  .sec{padding:72px 0;position:relative}
+  .sec-head{max-width:var(--maxw);margin:0 auto;padding:0 28px 28px;display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .sec-title{
+    font-size:clamp(26px,3.6vw,42px);font-weight:800;color:var(--ink);letter-spacing:-.5px;line-height:1.15;
+    word-break:keep-all;
+  }
+  .sec-title .num{
+    display:inline-block;font-size:14px;color:var(--accent);font-weight:800;letter-spacing:1px;
+    background:rgba(30,111,255,.1);padding:3px 10px;border-radius:6px;vertical-align:middle;margin-right:8px;
+  }
+  .sec-sub{color:var(--sub);font-size:14px;max-width:540px}
+
+  /* ========== 关于我 ========== */
+  #about{padding-top:48px}
+  .about-grid{
+    max-width:var(--maxw);margin:0 auto;padding:0 28px;
+    display:grid;grid-template-columns:1.4fr 1fr;gap:24px;
+  }
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+  .card{
+    background:var(--card-soft);backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:var(--radius-card);padding:28px;box-shadow:var(--shadow-sm);
+  }
+  .about-target{font-size:16px;color:var(--ink-2);font-weight:600;line-height:1.7}
+  .about-target b{color:var(--accent)}
+  .edu{display:flex;align-items:center;gap:18px;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+  .edu .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#0ea5e9,#06b6d4);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px;flex-shrink:0}
+  .edu .meta{font-size:12.5px;color:var(--sub)}
+  .edu .name{font-weight:800;color:var(--ink);font-size:15px;margin-top:2px}
+  .edu .time{font-size:12px;color:var(--sub);margin-top:4px}
+
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stat{
+    background:#fff;border-radius:14px;padding:18px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+  }
+  .stat .v{font-size:26px;font-weight:800;color:var(--accent);letter-spacing:-.5px}
+  .stat .l{font-size:12.5px;color:var(--sub);margin-top:4px;line-height:1.4}
+
+  /* ========== 项目 ========== */
+  .proj-list{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;gap:18px}
+  .proj{
+    background:#fff;border-radius:18px;padding:24px 26px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);transition:.2s;cursor:pointer;
+  }
+  .proj:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+  .proj-head{display:flex;align-items:start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .proj-title{font-size:18px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .proj-title .tag{
+    font-size:11px;padding:3px 8px;border-radius:6px;background:rgba(30,111,255,.1);color:var(--accent);font-weight:700;
+  }
+  .proj-title .tag.mint{background:rgba(16,185,129,.12);color:var(--mint)}
+  .proj-meta{color:var(--sub);font-size:12.5px}
+  .proj-sub{margin-top:10px;color:var(--ink-2);font-size:14.5px;line-height:1.6}
+  .proj-list-bullets{margin-top:14px;display:none}
+  .proj.expanded .proj-list-bullets{display:block}
+  .proj ul{padding-left:18px}
+  .proj ul li{font-size:14px;color:var(--ink-2);margin-bottom:6px;line-height:1.6}
+  .proj ul li b{color:var(--ink)}
+  .toggle{font-size:12.5px;color:var(--accent);font-weight:700;display:inline-flex;align-items:center;gap:4px}
+  .toggle::after{content:"▾";transition:.2s}
+  .proj.expanded .toggle::after{transform:rotate(180deg)}
+
+  /* ========== 技能 ========== */
+  .skill-grid{
+    max-width:var(--maxw);margin:0 auto;padding:0 28px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  @media(max-width:980px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.skill-grid{grid-template-columns:1fr}}
+  .skill{
+    background:#fff;border-radius:14px;padding:20px;border:1px solid var(--line);box-shadow:var(--shadow-sm);
+    transition:.2s;
+  }
+  .skill:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .skill .ico{
+    width:42px;height:42px;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;
+    margin-bottom:12px;
+  }
+  .skill .ic1{background:linear-gradient(135deg,var(--accent),#60a5fa)}
+  .skill .ic2{background:linear-gradient(135deg,var(--mint),#34d399)}
+  .skill .ic3{background:linear-gradient(135deg,var(--indigo),#a78bfa)}
+  .skill .ic4{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+  .skill .name{font-weight:800;color:var(--ink);font-size:15px;margin-bottom:8px}
+  .skill .desc{font-size:13px;color:var(--sub);line-height:1.6}
+  .skill .desc .pill{display:inline-block;background:rgba(30,111,255,.08);color:var(--accent);font-weight:600;padding:2px 7px;border-radius:5px;font-size:11.5px;margin:2px 4px 2px 0}
+
+  /* ========== 证书 ========== */
+  .cert-list{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.cert-list{grid-template-columns:1fr}}
+  .cert{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:start;box-shadow:var(--shadow-sm)}
+  .cert .ico{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--mint));color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+  .cert .t{font-weight:800;color:var(--ink);font-size:14.5px}
+  .cert .s{color:var(--sub);font-size:12.5px;margin-top:4px}
+  .cert .hl{display:inline-block;background:#fff7ed;color:#c2410c;font-size:11px;padding:2px 7px;border-radius:4px;margin-left:6px;font-weight:700}
+
+  /* ========== 联系 ========== */
+  #contact{padding-bottom:48px}
+  .contact-grid{
+    max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  }
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+  .contact-card{background:#fff;border-radius:18px;padding:26px;border:1px solid var(--line);box-shadow:var(--shadow-md)}
+  .contact-card h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .contact-line{
+    display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;
+    background:#f8fafc;border:1px solid var(--line);cursor:pointer;transition:.2s;margin-bottom:8px;
+  }
+  .contact-line:hover{background:#f1f5f9;border-color:var(--accent)}
+  .contact-line .ico{
+    width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--indigo));
+    color:#fff;display:grid;place-items:center;font-size:15px;flex-shrink:0;
+  }
+  .contact-line .info .v{font-weight:700;color:var(--ink);font-size:14px}
+  .contact-line .info .s{font-size:11.5px;color:var(--sub);margin-top:1px}
+  .contact-line .copy{font-size:11px;color:var(--accent);font-weight:700;margin-left:auto;opacity:0;transition:.2s}
+  .contact-line:hover .copy{opacity:1}
+
+  .eval-card{background:linear-gradient(160deg,#fff,#f0f9ff);border:1px solid rgba(30,111,255,.16);border-radius:18px;padding:26px;box-shadow:var(--shadow-md)}
+  .eval-card h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .eval-card ul{list-style:none;padding:0}
+  .eval-card li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2);line-height:1.6;display:flex;gap:10px}
+  .eval-card li:last-child{border-bottom:none}
+  .eval-card li::before{content:"✓";color:var(--accent);font-weight:800;flex-shrink:0;margin-top:2px}
+
+  /* ========== Footer ========== */
+  .footer{
+    text-align:center;padding:36px 18px 56px;color:var(--sub);font-size:12.5px;
+    border-top:1px solid rgba(15,23,42,.06);margin-top:24px;background:rgba(255,255,255,.4);
+  }
+  .footer a{color:var(--accent);font-weight:700}
+
+  /* ========== 悬浮气泡 ========== */
+  .floater{
+    position:fixed;right:20px;bottom:20px;z-index:60;
+    display:flex;align-items:end;gap:12px;
+  }
+  @media(max-width:520px){.floater{right:14px;bottom:14px}}
+  .floater-bubble{
+    background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 14px 36px rgba(15,23,42,.16);
+    font-size:13px;max-width:220px;line-height:1.4;
+    border:1px solid var(--line);
+    display:flex;align-items:center;gap:10px;
+  }
+  .floater-bubble .av{
+    width:28px;height:28px;border-radius:50%;
+    background:linear-gradient(135deg,#f59e0b,#fb923c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;
+    flex-shrink:0;
+  }
+  .floater-bubble .text{color:var(--ink);font-weight:600}
+  .floater-bubble .close{
+    margin-left:6px;color:var(--sub);font-size:14px;padding:2px 4px;line-height:1;border-radius:6px;
+  }
+  .floater-bubble .close:hover{background:#f1f5f9;color:var(--ink)}
+  .floater-card{
+    background:#fff;border-radius:16px;padding:14px;box-shadow:0 18px 50px rgba(15,23,42,.2);
+    border:1px solid var(--line);width:240px;display:none;
+  }
+  .floater.open .floater-card{display:block}
+  .floater-card .t{font-weight:800;font-size:13.5px;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .floater-card .t .av{
+    width:28px;height:28px;border-radius:50%;
+    background:linear-gradient(135deg,#f59e0b,#fb923c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;
+  }
+  .floater-card a, .floater-card button{
+    display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;font-size:13px;color:var(--ink);font-weight:600;
+    width:100%;text-align:left;transition:.2s;
+  }
+  .floater-card a:hover, .floater-card button:hover{background:#f1f5f9}
+  .floater-card .ico{width:30px;height:30px;border-radius:8px;background:rgba(30,111,255,.1);color:var(--accent);display:grid;place-items:center;font-size:14px;flex-shrink:0}
+  .floater.collapsed .floater-bubble{display:none}
+  .floater-toggle{
+    width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#fb923c);color:#fff;
+    box-shadow:0 14px 36px rgba(245,158,11,.4);display:grid;place-items:center;font-size:20px;font-weight:800;
+    cursor:pointer;border:none;transition:.2s;
+  }
+  .floater-toggle:hover{transform:translateY(-2px)}
+  .floater.collapsed .floater-toggle::before{content:"💬"}
+  .floater:not(.collapsed) .floater-toggle::before{content:"×";font-size:26px}
+
+  /* ========== Toast ========== */
+  .toast{
+    position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(100px);
+    background:#0f172a;color:#fff;padding:11px 22px;border-radius:var(--radius-pill);font-size:13.5px;font-weight:600;
+    box-shadow:0 18px 36px rgba(15,23,42,.3);z-index:80;transition:.3s ease;opacity:0;pointer-events:none;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+  /* ========== 滚动条 ========== */
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:rgba(15,23,42,.15);border-radius:5px}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(15,23,42,.3)}
+
+  /* ========== 打印 ========== */
+  @media print{
+    body{background:#fff}
+    .nav-wrap,.floater,.hero-visual,.toast{display:none !important}
+    .sec{padding:24px 0;page-break-inside:avoid}
+    .sec-head{padding-bottom:8px}
+    .card,.proj,.skill,.cert,.contact-card,.eval-card{
+      box-shadow:none;border:1px solid #e2e8f0;background:#fff !important;
+    }
+    .hero{padding:24px 0}
+    .hero h1{font-size:36px;color:#000}
+    .hero h1 .ink-line::after{display:none}
+    a{color:#0f172a;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部胶囊导航 ========== -->
+<div class="nav-wrap">
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-brand">
+      <span class="dot"></span>
+      <span>PORTFOLIO</span>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#about" data-target="about">关于我</a>
+      <a href="#projects" data-target="projects">项目作品</a>
+      <a href="#skills" data-target="skills">技能特长</a>
+      <a href="#certs" data-target="certs">证书培训</a>
+      <a href="#contact" data-target="contact">联系我</a>
+    </nav>
+    <div class="nav-cta" id="navCta">
+      <button class="btn-primary" id="navCtaBtn" aria-haspopup="true" aria-expanded="false">
+        <span class="lbl">查看简历 ▾</span>
+      </button>
+      <div class="dropdown" role="menu">
+        <a href="javascript:window.print()">🖨️ 打印 / 另存为 PDF</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ========== Hero ========== -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="hello-tag"><span class="star">★</span> HELLO / 你好</span>
+      <h1>Hi,<br>我是<span class="ink-line">王梓宇</span></h1>
+      <div class="subtitle">电商运营 / 跨境电商运营助理</div>
+      <p class="intro">21 岁，应届生。面向国内电商（淘宝/拼多多/抖音小店）与跨境（亚马逊/Shopee）的运营类岗位，期望从运营助理 / 选品助理切入，长期深耕「数据驱动选品 + 内容增长」。已用 AI 工具从零搭建「一人公司运营工作台」—— 用项目自证能力，而不只是说说。</p>
+      <div class="chips">
+        <span class="chip"><span class="em">●</span>数据分析</span>
+        <span class="chip"><span class="em">●</span>选品核算</span>
+        <span class="chip"><span class="em">●</span>内容运营</span>
+        <span class="chip"><span class="em">●</span>平台认知</span>
+        <span class="chip"><span class="em">●</span>英语 CET-4</span>
+      </div>
+      <div class="hero-cta">
+        <button class="btn-dark" onclick="window.print()">⬇ 下载简历</button>
+        <a href="#contact" class="btn-ghost">✉ 联系我</a>
+      </div>
+      <div class="hero-mini">
+        <span class="quick">📍 广东（可接受调剂）</span>
+        <span class="quick">⏱ 即时到岗 · 应届</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+      <div class="bubble b4"></div>
+      <div class="bubble b5"></div>
+      <div class="float-card fc-main">
+        <div class="ico">P</div>
+        <div>
+          <div class="t">一人公司运营工作台</div>
+          <div class="s">独立搭建 · 2026 · 个人项目</div>
+        </div>
+      </div>
+      <div class="float-card fc-1">
+        <div class="ico mint">21</div>
+        <div>
+          <div class="t">21岁</div>
+          <div class="s">应届 · 广东</div>
+        </div>
+      </div>
+      <div class="float-card fc-2">
+        <div class="ico gold">英</div>
+        <div>
+          <div class="t">CET-4</div>
+          <div class="s">英语基础</div>
+        </div>
+      </div>
+      <div class="float-card fc-3">
+        <div class="ico">7</div>
+        <div>
+          <div class="t">7 大模块</div>
+          <div class="s">工作台集成</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 关于我 ========== -->
+<section class="sec" id="about">
+  <div class="sec-head">
+    <div>
+      <div class="sec-title"><span class="num">01</span>关于我</div>
+      <div class="sec-sub" style="margin-top:6px">从零搭建过一套系统，比简历文字更可信的，是作品本身。</div>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="card">
+      <div class="about-target">
+        面向<b>国内电商</b>（淘宝 / 拼多多 / 抖音小店）与<b>跨境电商</b>（亚马逊 / Shopee）的运营类岗位，期望从 <b>运营助理 / 选品助理 / 数据分析助理</b> 切入，长期深耕「<b>数据驱动选品 + 内容增长</b>」方向。
+      </div>
+      <div class="edu">
+        <div class="logo">岭</div>
+        <div style="flex:1">
+          <div class="meta">教育背景</div>
+          <div class="name">岭南职业技术学院 · 计算机网络技术（专科）</div>
+          <div class="time">2024.09 – 2027.06 · 应届在读</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:800;color:var(--ink);margin-bottom:14px">快速一览</div>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="v">7+</div>
+          <div class="l">工作台集成模块<br>（选品 / 学习 / 看板…）</div>
+        </div>
+        <div class="stat">
+          <div class="v">2+</div>
+          <div class="l">含 1 个校园协作项目<br>+ 1 个独立作品</div>
+        </div>
+        <div class="stat">
+          <div class="v">CET-4</div>
+          <div class="l">英语 · 跨境岗待补强<br>读写商品文案</div>
+        </div>
+        <div class="stat">
+          <div class="v">即到岗</div>
+          <div class="l">应届 · 可接受调剂<br>广东本地</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 项目 ========== -->
+<section class="sec" id="projects">
+  <div class="sec-head">
+    <div>
+      <div class="sec-title"><span class="num">02</span>项目作品</div>
+      <div class="sec-sub" style="margin-top:6px">点击卡片可展开详情。</div>
+    </div>
+  </div>
+  <div class="proj-list">
+    <article class="proj" data-toggle>
+      <div class="proj-head">
+        <div>
+          <div class="proj-title">
+            「一人公司运营工作台」独立搭建
+            <span class="tag">个人项目</span>
+            <span class="tag mint">核心弹药</span>
+          </div>
+          <div class="proj-meta" style="margin-top:4px">2026 · 用 AI 工具从零搭建 · 集成 7 大模块</div>
+        </div>
+        <span class="toggle">展开详情</span>
+      </div>
+      <div class="proj-sub">用 AI 工具从零搭建的个人运营系统，是数据能力与运营方法论的落地证明 —— 不是简历话术。</div>
+      <div class="proj-list-bullets">
+        <ul>
+          <li>设计「选品跟踪」核算模型：录入 <b>成本 / 售价 / 平台扣点 / 快递 / 佣金</b>，自动算出 <b>毛利、利润率、ROI、盈亏平衡点</b>，用数据辅助选品决策</li>
+          <li>搭建「运营学习看板」沉淀技能 / 指标 / 读书 / 观察，并建立 <b>每日飞书日报自动汇总</b> 机制，把成长可视化</li>
+          <li>集成 AI 资讯、抖音选题、每日建议等模块，提升信息获取与内容选题效率</li>
+          <li>配置常驻守护进程实现 <b>服务崩溃自愈 + 定时提醒</b>（如每日 16:00 健身），体现系统化运营思维</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="proj" data-toggle>
+      <div class="proj-head">
+        <div>
+          <div class="proj-title">
+            网络设备配置实训
+            <span class="tag">校园项目</span>
+          </div>
+          <div class="proj-meta" style="margin-top:4px">2024.07 · 5 人小组 · 基于 eNSP 仿真平台</div>
+        </div>
+        <span class="toggle">展开详情</span>
+      </div>
+      <div class="proj-sub">5 人小组完成中型企业网络搭建，体现协作与执行力 —— 跨角色协同能力的小型实践。</div>
+      <div class="proj-list-bullets">
+        <ul>
+          <li>负责 <b>交换机 / 路由器配置</b>（VLAN 划分、静态路由、ACL 访问控制），实现全网互联</li>
+          <li>小组分工明确、各司其职，高效推进项目落地，锻炼了 <b>团队协同与问题排查能力</b></li>
+          <li>验证了「在限定时间内交付可运行系统」的执行力 —— 与运营岗需要的「按时交付活动」思维一致</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== 技能 ========== -->
+<section class="sec" id="skills">
+  <div class="sec-head">
+    <div>
+      <div class="sec-title"><span class="num">03</span>技能特长</div>
+      <div class="sec-sub" style="margin-top:6px">围绕「数据 + 内容 + 平台」搭建核心能力。</div>
+    </div>
+  </div>
+  <div class="skill-grid">
+    <div class="skill">
+      <div class="ico ic1">📊</div>
+      <div class="name">数据分析</div>
+      <div class="desc">
+        <span class="pill">数据透视表</span>
+        <span class="pill">VLOOKUP</span>
+        <span class="pill">占比 / 排序</span>
+        <span class="pill">切片器</span>
+        <br>基础数据可视化 + 结构化思维
+      </div>
+    </div>
+    <div class="skill">
+      <div class="ico ic2">🧮</div>
+      <div class="name">选品核算</div>
+      <div class="desc">
+        <span class="pill">毛利</span>
+        <span class="pill">利润率</span>
+        <span class="pill">ROI</span>
+        <span class="pill">盈亏平衡</span>
+        <br>熟手在落地的「选品跟踪」模型里每天都在用
+      </div>
+    </div>
+    <div class="skill">
+      <div class="ico ic3">🎬</div>
+      <div class="name">内容运营</div>
+      <div class="desc">
+        <span class="pill">抖音算法</span>
+        <span class="pill">爆款拆解</span>
+        <span class="pill">选题</span>
+        <br>理解推荐逻辑，能拆解爆款结构
+      </div>
+    </div>
+    <div class="skill">
+      <div class="ico ic4">🛒</div>
+      <div class="name">平台认知 & 工具</div>
+      <div class="desc">
+        <span class="pill">淘宝</span>
+        <span class="pill">拼多多</span>
+        <span class="pill">抖音小店</span>
+        <span class="pill">亚马逊</span>
+        <span class="pill">Shopee</span>
+        <br>工具：WorkBuddy · 飞书 · Office
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 证书 ========== -->
+<section class="sec" id="certs">
+  <div class="sec-head">
+    <div>
+      <div class="sec-title"><span class="num">04</span>证书 / 培训</div>
+      <div class="sec-sub" style="margin-top:6px">以下为已规划待补充方向。带 ★ 标记的为占位/建议补强项。</div>
+    </div>
+  </div>
+  <div class="cert-list">
+    <div class="cert">
+      <div class="ico">1</div>
+      <div>
+        <div class="t">计算机等级考试<span class="hl">★占位</span></div>
+        <div class="s">建议补充具体级别（计算机一级 / 二级）</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="ico">2</div>
+      <div>
+        <div class="t">英语等级<span class="hl">★已过 CET-4</span></div>
+        <div class="s">跨境方向建议补 CET-6 或商务英语</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="ico">3</div>
+      <div>
+        <div class="t">电商 / 运营线上课程证书<span class="hl">★建议补 1–2 个</span></div>
+        <div class="s">如平台官方运营课 / 数据分析课</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="ico">4</div>
+      <div>
+        <div class="t">校园项目实践证书（网络设备配置实训）</div>
+        <div class="s">2024.07 · 团队协作交付证明</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 联系 + 自我评价 ========== -->
+<section class="sec" id="contact">
+  <div class="sec-head">
+    <div>
+      <div class="sec-title"><span class="num">05</span>联系我 · 自我评价</div>
+      <div class="sec-sub" style="margin-top:6px">点一下联系方式即可复制或唤起邮件。</div>
+    </div>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <div class="eval-card">
+        <h3>📝 自我评价</h3>
+        <ul>
+          <li><span>数据敏感、执行力强，习惯用工具把重复劳动系统化（一人公司工作台即自证）</span></li>
+          <li><span>对电商 / 跨境电商运营有清晰兴趣与方法论储备，能独立做选品核算与内容选题</span></li>
+          <li><span>学习主动、上手快，计算机网络专业背景带来结构化思维；目标明确，愿从助理岗踏实成长</span></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="contact-card">
+        <h3>📬 联系方式</h3>
+        <div class="contact-line" data-copy="137-1993-3423">
+          <div class="ico">📱</div>
+          <div class="info">
+            <div class="v">137-1993-3423</div>
+            <div class="s">点击复制手机号</div>
+          </div>
+          <span class="copy">复制</span>
+        </div>
+        <div class="contact-line" data-mail="2473623419@qq.com">
+          <div class="ico">✉</div>
+          <div class="info">
+            <div class="v">2473623419@qq.com</div>
+            <div class="s">点击唤起邮件 / 复制</div>
+          </div>
+          <span class="copy">发邮件</span>
+        </div>
+        <div class="contact-line" data-copy="广东（可接受调剂至杭州）">
+          <div class="ico">📍</div>
+          <div class="info">
+            <div class="v">广东（可接受调剂）</div>
+            <div class="s">点击复制所在地</div>
+          </div>
+          <span class="copy">复制</span>
+        </div>
+        <div style="margin-top:14px;font-size:12.5px;color:var(--sub);line-height:1.5">📧 <b>温馨提示</b>：投递简历时建议附上 1-2 个你过往做过的「选品/数据/内容」案例，命中率会更高。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  © 2026 王梓宇 · 一人公司运营工作台出品 · 用 AI 工具搭自己的简历 ·
+  本页面纯静态 HTML，离线可打开。
+</div>
+
+<!-- ========== 悬浮气泡 ========== -->
+<div class="floater" id="floater">
+  <div class="floater-bubble" id="helloBubble">
+    <div class="av">梓</div>
+    <div class="text">Hi,我是梓宇,点我有惊喜 ✨</div>
+    <button class="close" id="bubbleClose" aria-label="关闭">×</button>
+  </div>
+  <div class="floater-card" id="floaterCard">
+    <div class="t">
+      <div class="av">梓</div>
+      <span>想了解我哪一面?</span>
+    </div>
+    <a href="javascript:void(0)" id="copyEmail"><span class="ico">✉</span><span>复制我的邮箱</span></a>
+    <a href="javascript:window.print()"><span class="ico">⬇</span><span>下载简历 PDF</span></a>
+    <a href="#top"><span class="ico">↑</span><span>回到顶部</span></a>
+  </div>
+  <button class="floater-toggle" id="floaterToggle" aria-label="聊一聊"></button>
+</div>
+
+<div class="toast" id="toast">已复制到剪贴板 ✓</div>
+
+<script>
+  // ========== 菜单锚点激活 ==========
+  const navMenu = document.getElementById('navMenu');
+  const menuLinks = navMenu.querySelectorAll('a');
+  const sections = ['about','projects','skills','certs','contact'].map(id => document.getElementById(id));
+  function updateActiveMenu(){
+    const scrollY = window.scrollY + 120;
+    let current = sections[0]?.id;
+    for (const sec of sections){
+      if (!sec) continue;
+      if (sec.offsetTop <= scrollY) current = sec.id;
+    }
+    menuLinks.forEach(a => a.classList.toggle('active', a.dataset.target === current));
+  }
+  window.addEventListener('scroll', updateActiveMenu, {passive:true});
+  updateActiveMenu();
+
+  // ========== Hero "查看简历" 下拉 ==========
+  const navCta = document.getElementById('navCta');
+  const navCtaBtn = document.getElementById('navCtaBtn');
+  navCtaBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navCta.classList.toggle('open');
+    navCtaBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', () => navCta.classList.remove('open'));
+
+  // ========== 项目卡片展开 ==========
+  document.querySelectorAll('[data-toggle]').forEach(card => {
+    card.querySelector('.proj-head').addEventListener('click', () => {
+      card.classList.toggle('expanded');
+      card.querySelector('.toggle').textContent = card.classList.contains('expanded') ? '收起' : '展开详情';
+    });
+  });
+
+  // ========== 联系信息复制 / 唤起 ==========
+  const toast = document.getElementById('toast');
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(()=>toast.classList.remove('show'), 1800);
+  }
+  document.querySelectorAll('[data-copy]').forEach(el => {
+    el.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const text = el.dataset.copy;
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast('已复制 ✓  ' + text);
+      }catch(err){
+        // 兼容回退
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); ta.remove();
+        showToast('已复制 ✓  ' + text);
+      }
+    });
+  });
+  document.querySelectorAll('[data-mail]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const mail = el.dataset.mail;
+      window.location.href = 'mailto:' + mail + '?subject=面试邀约%20-%20王梓宇&body=您好王梓宇同学，';
+    });
+  });
+
+  // ========== 悬浮气泡 ==========
+  const floater = document.getElementById('floater');
+  const helloBubble = document.getElementById('helloBubble');
+  const bubbleClose = document.getElementById('bubbleClose');
+  const floaterToggle = document.getElementById('floaterToggle');
+  const copyEmail = document.getElementById('copyEmail');
+
+  // 初始状态：未 dismiss 时显示招呼气泡
+  if (localStorage.getItem('bubble-dismissed') === '1'){
+    helloBubble.style.display = 'none';
+  }
+  bubbleClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    helloBubble.style.display = 'none';
+    localStorage.setItem('bubble-dismissed', '1');
+  });
+  floaterToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    floater.classList.toggle('collapsed');
+  });
+  helloBubble.addEventListener('click', () => floater.classList.add('collapsed'));
+  copyEmail.addEventListener('click', async (e) => {
+    e.preventDefault();
+    try{
+      await navigator.clipboard.writeText('2473623419@qq.com');
+      showToast('邮箱已复制 ✓  2473623419@qq.com');
+    }catch(err){showToast('复制失败,请手动复制')}
+  });
+
+  // 点击外部关闭气泡卡片
+  document.addEventListener('click', (e) => {
+    if (!floater.contains(e.target)){
+      floater.classList.remove('collapsed');
+    }
+  });
+</script>
+
+</body>
+</html>
