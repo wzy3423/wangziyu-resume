@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>王梓宇 · 个人作品集 · 电商运营 / 跨境电商运营助理</title>
-<meta name="description" content="王梓宇 — 21 岁，应届电商运营 / 跨境电商运营助理。一人公司运营工作台独立搭建者。">
+<meta name="description" content="王梓宇 — 21 岁，应届电商运营 / 跨境电商运营助理。一人运营工作台独立搭建者。">
 <style>
   /* ========== 变量与基础 ========== */
   :root{
@@ -155,6 +155,29 @@
     box-shadow:var(--shadow-sm);
   }
   .hello-tag .star{color:#f59e0b}
+
+  /* ========== Hero 头像 ========== */
+  .hero-avatar{
+    width:88px;height:88px;border-radius:50%;
+    background:conic-gradient(from 180deg, var(--accent), var(--mint), var(--accent-2), var(--indigo), var(--accent));
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;position:relative;
+    box-shadow:var(--shadow-md);
+  }
+  .hero-avatar::after{
+    content:"";position:absolute;inset:3px;border-radius:50%;background:#fff;
+  }
+  .hero-avatar img{
+    position:absolute;inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);
+    border-radius:50%;object-fit:cover;z-index:1;
+  }
+  .hero-avatar .avatar-fallback{
+    position:relative;z-index:2;font-weight:800;font-size:34px;color:var(--ink);
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    letter-spacing:-1px;
+    background:#fff;border-radius:50%;width:82px;height:82px;
+    display:flex;align-items:center;justify-content:center;
+  }
 
   .hero h1{
     font-size:clamp(40px,8vw,92px);line-height:1.04;font-weight:800;letter-spacing:-1px;
@@ -313,6 +336,37 @@
   .toggle{font-size:12.5px;color:var(--accent);font-weight:700;display:inline-flex;align-items:center;gap:4px}
   .toggle::after{content:"▾";transition:.2s}
   .proj.expanded .toggle::after{transform:rotate(180deg)}
+
+  /* 项目卡 — 封面+详情左右布局 */
+  .proj-card{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start}
+  @media(max-width:780px){.proj-card{grid-template-columns:1fr;gap:18px}}
+  .proj-cover{
+    background:linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+    border-radius:14px;aspect-ratio:4/3;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:#92400e;font-size:13px;font-style:italic;letter-spacing:.5px;
+    text-align:center;padding:18px;line-height:1.6;font-weight:600;
+    position:relative;overflow:hidden;border:1px solid rgba(146,64,14,.12);
+    box-shadow:inset 0 0 0 6px rgba(255,255,255,.5);
+  }
+  .proj-cover::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 55%);
+  }
+  .proj-cover .cover-ico{
+    width:48px;height:48px;border-radius:14px;
+    background:rgba(146,64,14,.18);display:flex;align-items:center;justify-content:center;
+    font-size:24px;margin-bottom:10px;position:relative;z-index:1;
+  }
+  .proj-cover .cover-txt{position:relative;z-index:1}
+  .proj-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .proj-body .proj-head{margin-bottom:0}
+  .proj-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .proj-chips .chip-mini{
+    font-size:12px;padding:5px 11px;border-radius:999px;
+    background:rgba(15,23,42,.06);color:var(--ink-2);font-weight:600;
+    border:1px solid rgba(15,23,42,.04);
+  }
 
   /* ========== 技能 ========== */
   .skill-grid{
@@ -491,23 +545,25 @@
 <section class="hero" id="top">
   <div class="hero-grid">
     <div class="hero-text">
+      <div class="hero-avatar" aria-label="王梓宇头像">
+        <!-- TODO: 把真实头像照片放进 img 标签，替换下方 fallback -->
+        <span class="avatar-fallback">W</span>
+      </div>
       <span class="hello-tag"><span class="star">★</span> HELLO / 你好</span>
       <h1>Hi,<br>我是<span class="ink-line">王梓宇</span></h1>
       <div class="subtitle">电商运营 / 跨境电商运营助理</div>
-      <p class="intro">21 岁，应届生。面向国内电商（淘宝/拼多多/抖音小店）与跨境（亚马逊/Shopee）的运营类岗位，期望从运营助理 / 选品助理切入，长期深耕「数据驱动选品 + 内容增长」。已用 AI 工具从零搭建「一人公司运营工作台」—— 用项目自证能力，而不只是说说。</p>
+      <p class="intro">21 岁，应届生。面向国内电商（淘宝/拼多多/抖音小店）与跨境（亚马逊/Shopee）的运营类岗位，期望从运营助理 / 选品助理切入，长期深耕「数据驱动选品 + 内容增长」。已用 AI 工具从零搭建「一人运营工作台」—— 用项目自证能力，而不只是说说。</p>
       <div class="chips">
         <span class="chip"><span class="em">●</span>数据分析</span>
-        <span class="chip"><span class="em">●</span>选品核算</span>
         <span class="chip"><span class="em">●</span>内容运营</span>
         <span class="chip"><span class="em">●</span>平台认知</span>
-        <span class="chip"><span class="em">●</span>英语 CET-4</span>
       </div>
       <div class="hero-cta">
-        <button class="btn-dark" onclick="window.print()">⬇ 下载简历</button>
+        <a href="resume.html" target="_blank" class="btn-dark">⬇ 下载简历</a>
         <a href="#contact" class="btn-ghost">✉ 联系我</a>
       </div>
       <div class="hero-mini">
-        <span class="quick">📍 广东（可接受调剂）</span>
+        <span class="quick">📍 广东（电商运营）</span>
         <span class="quick">⏱ 即时到岗 · 应届</span>
       </div>
     </div>
@@ -522,7 +578,7 @@
       <div class="float-card fc-main">
         <div class="ico">P</div>
         <div>
-          <div class="t">一人公司运营工作台</div>
+          <div class="t">一人运营工作台</div>
           <div class="s">独立搭建 · 2026 · 个人项目</div>
         </div>
       </div>
@@ -531,13 +587,6 @@
         <div>
           <div class="t">21岁</div>
           <div class="s">应届 · 广东</div>
-        </div>
-      </div>
-      <div class="float-card fc-2">
-        <div class="ico gold">英</div>
-        <div>
-          <div class="t">CET-4</div>
-          <div class="s">英语基础</div>
         </div>
       </div>
       <div class="float-card fc-3">
@@ -568,7 +617,7 @@
         <div class="logo">岭</div>
         <div style="flex:1">
           <div class="meta">教育背景</div>
-          <div class="name">岭南职业技术学院 · 计算机网络技术（专科）</div>
+          <div class="name">岭南职业技术学院 · 计算机网络技术</div>
           <div class="time">2024.09 – 2027.06 · 应届在读</div>
         </div>
       </div>
@@ -586,12 +635,8 @@
           <div class="l">含 1 个校园协作项目<br>+ 1 个独立作品</div>
         </div>
         <div class="stat">
-          <div class="v">CET-4</div>
-          <div class="l">英语 · 跨境岗待补强<br>读写商品文案</div>
-        </div>
-        <div class="stat">
           <div class="v">即到岗</div>
-          <div class="l">应届 · 可接受调剂<br>广东本地</div>
+          <div class="l">应届 · 电商运营<br>广东本地</div>
         </div>
       </div>
     </div>
@@ -608,18 +653,32 @@
   </div>
   <div class="proj-list">
     <article class="proj" data-toggle>
-      <div class="proj-head">
-        <div>
-          <div class="proj-title">
-            「一人公司运营工作台」独立搭建
-            <span class="tag">个人项目</span>
-            <span class="tag mint">核心弹药</span>
-          </div>
-          <div class="proj-meta" style="margin-top:4px">2026 · 用 AI 工具从零搭建 · 集成 7 大模块</div>
+      <div class="proj-card">
+        <div class="proj-cover">
+          <div class="cover-ico">🖥️</div>
+          <div class="cover-txt">project cover<br>· 工作台截图 ·</div>
         </div>
-        <span class="toggle">展开详情</span>
+        <div class="proj-body">
+          <div class="proj-head">
+            <div>
+              <div class="proj-title">
+                「一人运营工作台」独立搭建
+                <span class="tag">个人项目</span>
+                <span class="tag mint">核心弹药</span>
+              </div>
+              <div class="proj-meta" style="margin-top:4px">2026 · 用 AI 工具从零搭建 · 集成 7 大模块</div>
+            </div>
+            <span class="toggle">展开详情</span>
+          </div>
+          <div class="proj-sub">用 AI 工具从零搭建的个人运营系统，是数据能力与运营方法论的落地证明 —— 不是简历话术。</div>
+          <div class="proj-chips">
+            <span class="chip-mini">Node.js</span>
+            <span class="chip-mini">飞书 API</span>
+            <span class="chip-mini">AI 摘要</span>
+            <span class="chip-mini">热榜聚合</span>
+          </div>
+        </div>
       </div>
-      <div class="proj-sub">用 AI 工具从零搭建的个人运营系统，是数据能力与运营方法论的落地证明 —— 不是简历话术。</div>
       <div class="proj-list-bullets">
         <ul>
           <li>设计「选品跟踪」核算模型：录入 <b>成本 / 售价 / 平台扣点 / 快递 / 佣金</b>，自动算出 <b>毛利、利润率、ROI、盈亏平衡点</b>，用数据辅助选品决策</li>
@@ -630,27 +689,7 @@
       </div>
     </article>
 
-    <article class="proj" data-toggle>
-      <div class="proj-head">
-        <div>
-          <div class="proj-title">
-            网络设备配置实训
-            <span class="tag">校园项目</span>
-          </div>
-          <div class="proj-meta" style="margin-top:4px">2024.07 · 5 人小组 · 基于 eNSP 仿真平台</div>
-        </div>
-        <span class="toggle">展开详情</span>
-      </div>
-      <div class="proj-sub">5 人小组完成中型企业网络搭建，体现协作与执行力 —— 跨角色协同能力的小型实践。</div>
-      <div class="proj-list-bullets">
-        <ul>
-          <li>负责 <b>交换机 / 路由器配置</b>（VLAN 划分、静态路由、ACL 访问控制），实现全网互联</li>
-          <li>小组分工明确、各司其职，高效推进项目落地，锻炼了 <b>团队协同与问题排查能力</b></li>
-          <li>验证了「在限定时间内交付可运行系统」的执行力 —— 与运营岗需要的「按时交付活动」思维一致</li>
-        </ul>
-      </div>
-    </article>
-  </div>
+    </div>
 </section>
 
 <!-- ========== 技能 ========== -->
@@ -674,17 +713,6 @@
       </div>
     </div>
     <div class="skill">
-      <div class="ico ic2">🧮</div>
-      <div class="name">选品核算</div>
-      <div class="desc">
-        <span class="pill">毛利</span>
-        <span class="pill">利润率</span>
-        <span class="pill">ROI</span>
-        <span class="pill">盈亏平衡</span>
-        <br>熟手在落地的「选品跟踪」模型里每天都在用
-      </div>
-    </div>
-    <div class="skill">
       <div class="ico ic3">🎬</div>
       <div class="name">内容运营</div>
       <div class="desc">
@@ -692,18 +720,6 @@
         <span class="pill">爆款拆解</span>
         <span class="pill">选题</span>
         <br>理解推荐逻辑，能拆解爆款结构
-      </div>
-    </div>
-    <div class="skill">
-      <div class="ico ic4">🛒</div>
-      <div class="name">平台认知 & 工具</div>
-      <div class="desc">
-        <span class="pill">淘宝</span>
-        <span class="pill">拼多多</span>
-        <span class="pill">抖音小店</span>
-        <span class="pill">亚马逊</span>
-        <span class="pill">Shopee</span>
-        <br>工具：WorkBuddy · 飞书 · Office
       </div>
     </div>
   </div>
@@ -728,22 +744,8 @@
     <div class="cert">
       <div class="ico">2</div>
       <div>
-        <div class="t">英语等级<span class="hl">★已过 CET-4</span></div>
-        <div class="s">跨境方向建议补 CET-6 或商务英语</div>
-      </div>
-    </div>
-    <div class="cert">
-      <div class="ico">3</div>
-      <div>
         <div class="t">电商 / 运营线上课程证书<span class="hl">★建议补 1–2 个</span></div>
         <div class="s">如平台官方运营课 / 数据分析课</div>
-      </div>
-    </div>
-    <div class="cert">
-      <div class="ico">4</div>
-      <div>
-        <div class="t">校园项目实践证书（网络设备配置实训）</div>
-        <div class="s">2024.07 · 团队协作交付证明</div>
       </div>
     </div>
   </div>
@@ -787,10 +789,10 @@
           </div>
           <span class="copy">发邮件</span>
         </div>
-        <div class="contact-line" data-copy="广东（可接受调剂至杭州）">
+        <div class="contact-line" data-copy="广东（电商运营至杭州）">
           <div class="ico">📍</div>
           <div class="info">
-            <div class="v">广东（可接受调剂）</div>
+            <div class="v">广东（电商运营）</div>
             <div class="s">点击复制所在地</div>
           </div>
           <span class="copy">复制</span>
@@ -802,7 +804,7 @@
 </section>
 
 <div class="footer">
-  © 2026 王梓宇 · 一人公司运营工作台出品 · 用 AI 工具搭自己的简历 ·
+  © 2026 王梓宇 · 一人运营工作台出品 · 用 AI 工具搭自己的简历 ·
   本页面纯静态 HTML，离线可打开。
 </div>
 
@@ -819,7 +821,7 @@
       <span>想了解我哪一面?</span>
     </div>
     <a href="javascript:void(0)" id="copyEmail"><span class="ico">✉</span><span>复制我的邮箱</span></a>
-    <a href="javascript:window.print()"><span class="ico">⬇</span><span>下载简历 PDF</span></a>
+    <a href="resume.html" target="_blank"><span class="ico">⬇</span><span>下载简历 PDF</span></a>
     <a href="#top"><span class="ico">↑</span><span>回到顶部</span></a>
   </div>
   <button class="floater-toggle" id="floaterToggle" aria-label="聊一聊"></button>
