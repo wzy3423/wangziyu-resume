@@ -547,7 +547,8 @@
   }
 
   /* ========== 作品集画廊统一规范 ========== */
-  .proj-gallery{margin-top:20px}
+  .proj-gallery{margin-top:20px;display:none}
+  .proj.expanded .proj-gallery{display:block}
   .gallery-label{font-size:24px;font-weight:800;color:#0f766e;margin-bottom:14px;line-height:1.25}
   .gallery-grid{display:grid;gap:12px}
   .gallery-grid.cols-6{grid-template-columns:repeat(6,1fr)}
@@ -823,7 +824,6 @@
     <nav class="nav-menu" id="navMenu">
       <a href="#about" data-target="about">关于我</a>
       <a href="#projects" data-target="projects">作品集</a>
-      <a href="#skills" data-target="skills">技能特长</a>
       <a href="#certs" data-target="certs">证书培训</a>
       <a href="#contact" data-target="contact">联系我</a>
     </nav>
@@ -852,7 +852,7 @@
       <span class="hello-tag"><span class="star">★</span> HELLO / 你好</span>
       <h1>Hi,<br>我是<span class="ink-line">王梓宇</span></h1>
       <div class="subtitle">电商运营 / 跨境电商运营助理</div>
-      <p class="intro">21 岁，应届生。面向国内电商（淘宝/拼多多/抖音小店）与跨境（亚马逊/Shopee）的运营类岗位，期望从运营助理 / 选品助理切入，长期深耕「数据驱动选品 + 内容增长」。已用 AI 工具从零搭建「一人工作台」—— 用项目自证能力，而不只是说说。</p>
+      <p class="intro">21 岁，应届生。面向国内电商（淘宝/拼多多/抖音小店）与跨境（亚马逊/Shopee）的运营类岗位，期望从运营助理切入。以下是我的个人作品集，欢迎指教。</p>
       <div class="chips">
         <span class="chip"><span class="em">●</span>数据分析</span>
         <span class="chip"><span class="em">●</span>内容运营</span>
@@ -911,7 +911,7 @@
   <div class="about-grid">
     <div class="card">
       <div class="about-target">
-        面向<b>国内电商</b>（淘宝 / 拼多多 / 抖音小店）与<b>跨境电商</b>（亚马逊 / Shopee）的运营类岗位，期望从 <b>运营助理 / 选品助理 / 数据分析助理</b> 切入，长期深耕「<b>数据驱动选品 + 内容增长</b>」方向。
+        面向<b>国内电商</b>（淘宝 / 拼多多 / 抖音小店）与<b>跨境电商</b>（亚马逊 / Shopee）的运营类岗位，期望从 <b>运营助理 / 数据分析助理</b> 切入，长期深耕「<b>数据驱动选品 + 内容增长</b>」方向。
       </div>
       <div class="edu">
         <div class="logo">岭</div>
@@ -935,10 +935,28 @@
     </div>
   </div>
   <div class="proj-list">
-    <article class="proj" style="margin-bottom:0">
-      <a href="http://localhost:3210" target="_blank" style="display:block;text-decoration:none;border-radius:12px;overflow:hidden;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(0,0,0,.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 8px rgba(0,0,0,.05)'">
-        <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-workbench-cover.png?v=10" alt="一人工作台" style="width:100%;display:block">
-      </a>
+    <article class="proj" data-toggle>
+      <div class="proj-card">
+        <div class="proj-cover" style="padding:0;overflow:hidden;background:#f0f9ff">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-workbench-cover.png?v=10" alt="一人工作台" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="proj-body">
+          <div class="proj-head">
+            <div>
+              <div class="proj-title">一人工作台</div>
+              <div class="proj-meta-small">独立搭建 · 2026 · 个人项目</div>
+            </div>
+            <span class="toggle">展开详情</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-gallery">
+        <div class="proj-intro">
+          <h5>项目背景</h5>
+          <p>用 AI 工具独立搭建的个人工作系统，集成 AIHOT、每日热榜、感恩日记、飞书文档 API、图片设计等自动化技能，用于支撑电商运营学习与内容产出。</p>
+          <p><b>我的角色：</b>独立完成需求梳理、工具选型、前端页面搭建与部署维护。</p>
+        </div>
+      </div>
     </article>
 
     <article class="proj" data-toggle>
@@ -1020,39 +1038,12 @@
     </div>
 </section>
 
-<!-- ========== 技能 ========== -->
-<section class="sec" id="skills">
-  <div class="sec-head">
-    <div>
-      <div class="sec-title"><span class="num">03</span>技能特长</div>
-      <div class="sec-sub" style="margin-top:6px">围绕「数据 + 内容 + 平台」搭建核心能力。</div>
-    </div>
-  </div>
-  <div class="skill-cert-list">
-    <div class="cert">
-      <div class="ico c1">O</div>
-      <div><div class="t">熟练掌握 Office 办公软件</div></div>
-    </div>
-    <div class="cert">
-      <div class="ico c2">P</div>
-      <div><div class="t">PS</div></div>
-    </div>
-    <div class="cert">
-      <div class="ico c3">E</div>
-      <div><div class="t">Excel</div></div>
-    </div>
-    <div class="cert">
-      <div class="ico c4">W</div>
-      <div><div class="t">Word</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- ========== 证书 ========== -->
 <section class="sec" id="certs">
   <div class="sec-head">
     <div>
-      <div class="sec-title"><span class="num">04</span>证书 / 培训</div>
+      <div class="sec-title"><span class="num">03</span>证书 / 培训</div>
       <div class="sec-sub" style="margin-top:6px">已取得的证书与培训。</div>
     </div>
   </div>
@@ -1076,7 +1067,7 @@
 <section class="sec" id="contact">
   <div class="sec-head">
     <div>
-      <div class="sec-title"><span class="num">05</span>联系我 · 自我评价</div>
+      <div class="sec-title"><span class="num">04</span>联系我 · 自我评价</div>
       <div class="sec-sub" style="margin-top:6px">点一下联系方式即可复制或唤起邮件。</div>
     </div>
   </div>
