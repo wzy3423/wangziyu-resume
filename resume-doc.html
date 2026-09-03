@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>王梓宇 · 个人简历 · 运营助理</title>
+<title>王梓宇 · 个人简历（下载 / 查看）</title>
 <style>
   :root{
     --primary:#4a5568;
@@ -157,20 +157,16 @@
 
 <div class="toolbar">
   <div class="toolbar-inner">
-    <span class="toolbar-brand">王梓宇 · 在线简历</span>
+    <span class="toolbar-brand">王梓宇 · 个人简历（与桌面 docx 一致）</span>
     <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
-      <button type="button" class="btn-secondary" onclick="document.getElementById('photoInput').click()">📷 上传照片</button>
-      <button type="button" id="saveBtn" onclick="exportResume()">💾 保存修改</button>
-      <button type="button" class="btn-secondary" onclick="resetResume()">↺ 重置</button>
-      <button type="button" onclick="window.print()">🖨️ 打印 / PDF</button>
-      <a href="王梓宇简历.docx" download><button type="button">⬇ 下载简历</button></a>
+      <a href="王梓宇简历.docx" download><button type="button">⬇ 下载简历（.docx）</button></a>
+      <button type="button" onclick="window.print()">🖨 打印 / 存PDF</button>
+      <a href="index.html"><button type="button" class="btn-secondary">← 返回首页</button></a>
     </div>
   </div>
 </div>
 
-<input type="file" id="photoInput" accept="image/*" style="display:none">
-
-<div class="page" contenteditable="true" spellcheck="false">
+<div class="page">
 
   <!-- Header -->
   <div class="r-header">
@@ -270,75 +266,5 @@
   </div>
 
 </div>
-
-<script>
-  (function(){
-    var KEY='resume_edit_draft_v5_docx_style';
-    try{ localStorage.removeItem('resume_edit_draft_v4_docx'); localStorage.removeItem('resume_edit_draft_v3'); }catch(e){}
-
-    var SAVE_URL='/save';
-    var page=document.querySelector('.page');
-    var photoInput=document.getElementById('photoInput');
-    var banner=document.getElementById('draftBanner');
-
-    try{
-      var saved=localStorage.getItem(KEY);
-      if(saved){ page.innerHTML=saved; }
-    }catch(e){}
-
-    function markDraft(){
-      try{ localStorage.setItem(KEY, page.innerHTML); }catch(e){}
-    }
-    page.addEventListener('input', markDraft);
-
-    // 照片上传（暂保留功能，但默认不显示照片框）
-    photoInput.addEventListener('change', function(e){
-      var f=e.target.files && e.target.files[0]; if(!f) return;
-      var r=new FileReader();
-      r.onload=function(ev){
-        markDraft();
-        alert('照片已暂存在本地草稿，点击「保存修改」后会写入网页。');
-      };
-      r.readAsDataURL(f);
-      e.target.value='';
-    });
-
-    window.exportResume=function(){
-      markDraft();
-      var html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
-      var btn=document.getElementById('saveBtn');
-      if(btn){ btn.disabled=true; btn.textContent='保存中…'; }
-
-      fetch(SAVE_URL, {method:'POST', headers:{'Content-Type':'text/html; charset=utf-8'}, body:html})
-        .then(function(r){
-          if(!r.ok){ return r.text().then(function(t){ throw new Error(t||('HTTP '+r.status)); }); }
-          return r.text();
-        })
-        .then(function(){
-          try{ localStorage.removeItem(KEY); }catch(e){}
-          if(banner) banner.style.display='none';
-          alert('已保存到网站 ✓ 刷新即可看到最新版');
-          location.reload();
-        })
-        .catch(function(err){
-          var blob=new Blob([html],{type:'text/html;charset=utf-8'});
-          var a=document.createElement('a');
-          a.href=URL.createObjectURL(blob);
-          a.download='resume.html';
-          document.body.appendChild(a); a.click(); document.body.removeChild(a);
-          setTimeout(function(){ try{URL.revokeObjectURL(a.href);}catch(e){} },1000);
-          if(btn){ btn.disabled=false; btn.textContent='💾 保存修改'; }
-          alert('保存失败：'+(err&&err.message?err.message:'未知错误')+'\n你的修改已暂存在本地草稿（刷新不丢），并已为你下载 resume.html 副本备份。');
-        });
-    };
-
-    window.resetResume=function(){
-      if(confirm('确定清空本地修改，恢复到初始简历吗？')){
-        try{ localStorage.removeItem(KEY); }catch(e){}
-        location.reload();
-      }
-    };
-  })();
-</script>
 
 </body></html>

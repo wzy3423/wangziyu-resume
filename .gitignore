@@ -1,0 +1,4 @@
+*.bak
+*.cornerbak
+__pycache__/
+*.pyc

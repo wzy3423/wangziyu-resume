@@ -289,9 +289,8 @@
   #about{padding-top:48px}
   .about-grid{
     max-width:var(--maxw);margin:0 auto;padding:0 28px;
-    display:grid;grid-template-columns:1.4fr 1fr;gap:24px;
+    display:grid;grid-template-columns:1fr;gap:24px;
   }
-  @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
   .card{
     background:var(--card-soft);backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,.7);
@@ -391,6 +390,40 @@
   .skill .name{font-weight:800;color:var(--ink);font-size:15px;margin-bottom:8px}
   .skill .desc{font-size:13px;color:var(--sub);line-height:1.6}
   .skill .desc .pill{display:inline-block;background:rgba(30,111,255,.08);color:var(--accent);font-weight:600;padding:2px 7px;border-radius:5px;font-size:11.5px;margin:2px 4px 2px 0}
+
+  /* ========== 数据能力可视化 ========== */
+  .dataviz-grid{
+    max-width:var(--maxw);margin:0 auto;padding:0 28px;
+    display:grid;grid-template-columns:1fr 1fr;gap:16px 44px;
+  }
+  @media(max-width:720px){.dataviz-grid{grid-template-columns:1fr;gap:14px}}
+  .bar-row{display:flex;flex-direction:column;gap:7px}
+  .bar-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .bar-name{font-size:14px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .bar-name .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+  .bar-name .dot.mint{background:var(--mint)}
+  .bar-name .dot.indigo{background:var(--indigo)}
+  .bar-name .dot.gold{background:#f59e0b}
+  .bar-pct{font-size:13px;font-weight:800;color:var(--sub);font-variant-numeric:tabular-nums}
+  .bar-track{height:10px;border-radius:999px;background:rgba(15,23,42,.07);overflow:hidden}
+  .bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--indigo));width:0;transition:width 1.1s cubic-bezier(.22,1,.36,1)}
+  .bar-fill.mint{background:linear-gradient(90deg,var(--mint),#34d399)}
+  .bar-fill.indigo{background:linear-gradient(90deg,var(--indigo),#a78bfa)}
+  .bar-fill.gold{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+  .bar-note{font-size:11.5px;color:var(--sub);margin-top:1px}
+
+  /* ========== 技能证书化卡片 ========== */
+  .skill-cert-list{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:980px){.skill-cert-list{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.skill-cert-list{grid-template-columns:1fr}}
+  .skill-cert-list .cert{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-sm);transition:.2s}
+  .skill-cert-list .cert:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .skill-cert-list .cert .ico{flex-shrink:0;width:36px;height:36px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+  .skill-cert-list .cert .ico.c1{background:linear-gradient(135deg,var(--accent),#60a5fa)}
+  .skill-cert-list .cert .ico.c2{background:linear-gradient(135deg,var(--mint),#34d399)}
+  .skill-cert-list .cert .ico.c3{background:linear-gradient(135deg,var(--indigo),#a78bfa)}
+  .skill-cert-list .cert .ico.c4{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+  .skill-cert-list .cert .t{font-weight:800;color:var(--ink);font-size:14.5px}
 
   /* ========== 证书 ========== */
   .cert-list{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -512,6 +545,270 @@
     .hero h1 .ink-line::after{display:none}
     a{color:#0f172a;text-decoration:none}
   }
+
+  /* ========== 作品集画廊统一规范 ========== */
+  .proj-gallery{margin-top:20px}
+  .gallery-label{font-size:24px;font-weight:800;color:#0f766e;margin-bottom:14px;line-height:1.25}
+  .gallery-grid{display:grid;gap:12px}
+  .gallery-grid.cols-6{grid-template-columns:repeat(6,1fr)}
+  .gallery-grid.cols-5{grid-template-columns:repeat(5,1fr)}
+  .gallery-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .gallery-grid img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;border:1px solid #eee;display:block;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .gallery-grid img:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.1)}
+  .proj-meta-small{font-size:12px;color:var(--sub);margin-top:4px}
+
+  /* ========== AI 辅助说明与过程链路 ========== */
+  .ai-note{
+    background:linear-gradient(160deg,#f0f9ff,#fff);border:1px solid rgba(30,111,255,.16);
+    border-radius:14px;padding:18px 20px;margin-bottom:22px;box-shadow:var(--shadow-sm)
+  }
+  .ai-note h4{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .ai-note p{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+  .proj-intro{margin-bottom:18px}
+  .proj-intro h5{font-size:15px;font-weight:800;color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+  .proj-intro p{font-size:14.5px;color:var(--ink-2);line-height:1.8;margin-bottom:12px}
+  /* ========== 过程链路（三项目三种风格） ========== */
+  .process-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+  .process-step{
+    position:relative;padding:16px;min-height:150px;
+    box-shadow:var(--shadow-sm);border-radius:14px;
+    display:flex;flex-direction:column;gap:8px;
+    transition:.25s ease;
+  }
+  .process-step:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,23,42,.12)}
+  .process-step .step-icon{
+    width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+    font-size:17px;color:#fff;flex-shrink:0;transition:.25s;font-style:normal
+  }
+  .process-step .num{
+    position:absolute;top:12px;right:12px;font-size:10px;font-weight:800;
+    padding:3px 8px;border-radius:999px;color:#fff;opacity:.9
+  }
+  .process-step .ttl{font-size:13.5px;font-weight:800;margin-bottom:4px}
+  .process-step .desc{font-size:12.3px;line-height:1.55;opacity:.92}
+
+  /* --- 项目一：紫色轻盈科技风 --- */
+  .process-flow.theme-purple .process-step{
+    background:rgba(255,255,255,.78);backdrop-filter:blur(6px);
+    border:1px solid rgba(139,92,246,.18)
+  }
+  .process-flow.theme-purple .step-prompt{
+    background:linear-gradient(135deg,#a855f7,#8b5cf6);color:#fff;
+    flex-direction:row;align-items:center;gap:14px
+  }
+  .process-flow.theme-purple .step-prompt .step-text{flex:1;display:flex;flex-direction:column;gap:4px}
+  .process-flow.theme-purple .step-prompt .step-icon{background:rgba(255,255,255,.22)}
+  .process-flow.theme-purple .step-prompt .num{background:rgba(255,255,255,.25)}
+  .process-flow.theme-purple .step-prompt .ttl{color:#fff}
+  .process-flow.theme-purple .step-prompt .desc{color:rgba(255,255,255,.9)}
+  .process-flow.theme-purple .step-draft{
+    background:linear-gradient(160deg,#f3e8ff,#e9d5ff);color:#6b21a8;
+    clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%)
+  }
+  .process-flow.theme-purple .step-draft .step-icon{
+    background:linear-gradient(135deg,#c084fc,#a855f7);color:#fff;
+    width:44px;height:44px;font-size:20px;margin-bottom:4px
+  }
+  .process-flow.theme-purple .step-draft .num{background:#8b5cf6;color:#fff}
+  .process-flow.theme-purple .step-draft .ttl{color:#5b21b6}
+  .process-flow.theme-purple .step-draft .desc{color:#7c3aed}
+  .process-flow.theme-purple .step-optimize{
+    background:linear-gradient(135deg,#eff6ff,#f5f3ff);color:#1e293b;
+    border-radius:999px 16px 16px 999px;border:1px solid rgba(99,102,241,.15)
+  }
+  .process-flow.theme-purple .step-optimize .step-icon{
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:999px
+  }
+  .process-flow.theme-purple .step-optimize .num{background:#6366f1}
+  .process-flow.theme-purple .step-optimize .ttl{color:#312e81}
+  .process-flow.theme-purple .step-optimize .desc{color:#4338ca}
+  .process-flow.theme-purple .step-optimize .desc b{background:#e0e7ff;color:#312e81;padding:0 4px;border-radius:4px}
+  .process-flow.theme-purple .step-final{
+    background:linear-gradient(135deg,#6b21a8,#581c87);color:#fff;
+    text-align:center;align-items:center;justify-content:center;
+    border:1px solid rgba(251,191,36,.35)
+  }
+  .process-flow.theme-purple .step-final .step-icon{
+    background:#fbbf24;color:#581c87;font-size:18px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)
+  }
+  .process-flow.theme-purple .step-final .num{background:rgba(251,191,36,.25);color:#fbbf24}
+  .process-flow.theme-purple .step-final .ttl{color:#fff}
+  .process-flow.theme-purple .step-final .desc{color:rgba(255,255,255,.88)}
+
+  /* --- 项目二：蓝色功能说服型 --- */
+  .process-flow.theme-blue .process-step{
+    background:#fff;border:1px solid rgba(59,130,246,.15)
+  }
+  .process-flow.theme-blue .step-prompt{
+    background:#3b82f6;color:#fff;border-radius:6px;border:1px solid rgba(255,255,255,.25)
+  }
+  .process-flow.theme-blue .step-prompt .step-icon{background:rgba(255,255,255,.18)}
+  .process-flow.theme-blue .step-prompt .num{background:rgba(255,255,255,.25)}
+  .process-flow.theme-blue .step-prompt .ttl{color:#fff}
+  .process-flow.theme-blue .step-prompt .desc{color:rgba(255,255,255,.92)}
+  .process-flow.theme-blue .step-draft{
+    background:linear-gradient(160deg,#dbeafe,#bfdbfe);color:#1e40af;
+    clip-path:polygon(0 0, 88% 0, 100% 28%, 100% 100%, 12% 100%, 0 72%);
+    transform:translateY(6px)
+  }
+  .process-flow.theme-blue .step-draft:nth-child(2n){transform:translateY(-6px)}
+  .process-flow.theme-blue .step-draft .step-icon{background:#3b82f6;color:#fff}
+  .process-flow.theme-blue .step-draft .num{background:#2563eb;color:#fff}
+  .process-flow.theme-blue .step-draft .ttl{color:#1e40af}
+  .process-flow.theme-blue .step-draft .desc{color:#1d4ed8}
+  .process-flow.theme-blue .step-optimize{
+    background:#fff;color:#1e293b;border-left:5px solid #0ea5e9
+  }
+  .process-flow.theme-blue .step-optimize .step-icon{
+    background:linear-gradient(135deg,#0ea5e9,#10b981);border-radius:8px
+  }
+  .process-flow.theme-blue .step-optimize .num{background:#0ea5e9}
+  .process-flow.theme-blue .step-optimize .ttl{color:#0f172a}
+  .process-flow.theme-blue .step-optimize .desc{color:#334155}
+  .process-flow.theme-blue .step-final{
+    background:#1e3a8a;color:#fff;border-radius:6px 6px 0 0;
+    border-bottom:4px solid #bef264
+  }
+  .process-flow.theme-blue .step-final .step-icon{background:#bef264;color:#1e3a8a}
+  .process-flow.theme-blue .step-final .num{background:rgba(190,242,100,.25);color:#bef264}
+  .process-flow.theme-blue .step-final .ttl{color:#fff}
+  .process-flow.theme-blue .step-final .desc{color:rgba(255,255,255,.88)}
+
+  /* --- 项目三：深空灰3C科技风 --- */
+  .process-flow.theme-gray .process-step{
+    background:#f8fafc;color:#334155;border:1px solid rgba(148,163,184,.25)
+  }
+  .process-flow.theme-gray .step-prompt{
+    background:#334155;color:#38bdf8;border-radius:0 12px 0 12px;
+    clip-path:polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    font-family:"Microsoft YaHei",sans-serif
+  }
+  .process-flow.theme-gray .step-prompt .step-icon{background:#38bdf8;color:#0f172a}
+  .process-flow.theme-gray .step-prompt .num{background:#475569;color:#38bdf8}
+  .process-flow.theme-gray .step-prompt .ttl{color:#f8fafc}
+  .process-flow.theme-gray .step-prompt .desc{color:#cbd5e1}
+  .process-flow.theme-gray .step-draft{
+    background:linear-gradient(135deg,#1e293b,#0f172a);color:#e2e8f0;
+    transform:skewX(-8deg);border:1px solid rgba(56,189,248,.25)
+  }
+  .process-flow.theme-gray .step-draft .step-icon,
+  .process-flow.theme-gray .step-draft .ttl,
+  .process-flow.theme-gray .step-draft .desc{transform:skewX(8deg)}
+  .process-flow.theme-gray .step-draft .step-icon{background:#38bdf8;color:#0f172a}
+  .process-flow.theme-gray .step-draft .num{background:#334455;color:#94a3b8}
+  .process-flow.theme-gray .step-draft .ttl{color:#f1f5f9}
+  .process-flow.theme-gray .step-draft .desc{color:#cbd5e1}
+  .process-flow.theme-gray .step-optimize{
+    background:#334155;color:#e2e8f0;border-radius:0;
+    clip-path:polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px))
+  }
+  .process-flow.theme-gray .step-optimize .step-icon{background:#60a5fa;color:#0f172a}
+  .process-flow.theme-gray .step-optimize .num{background:#475569;color:#60a5fa}
+  .process-flow.theme-gray .step-optimize .ttl{color:#f8fafc}
+  .process-flow.theme-gray .step-optimize .desc{color:#cbd5e1}
+  .process-flow.theme-gray .step-final{
+    background:#0ea5e9;color:#fff;border:2px solid #94a3b8;
+    border-radius:0;position:relative
+  }
+  .process-flow.theme-gray .step-final::after{
+    content:"";position:absolute;top:-10px;right:-10px;width:24px;height:24px;
+    background:#e2e8f0;border:2px solid #94a3b8;border-radius:4px;z-index:2
+  }
+  .process-flow.theme-gray .step-final .step-icon{background:#0f172a;color:#38bdf8;border:1px solid #94a3b8}
+  .process-flow.theme-gray .step-final .num{background:rgba(255,255,255,.2)}
+  .process-flow.theme-gray .step-final .ttl{color:#fff}
+  .process-flow.theme-gray .step-final .desc{color:rgba(255,255,255,.9)}
+
+  @media(max-width:860px){
+    .process-flow{grid-template-columns:repeat(2,1fr)}
+    .process-flow.theme-gray .step-draft{transform:skewX(-4deg)}
+    .process-flow.theme-gray .step-draft .step-icon,
+    .process-flow.theme-gray .step-draft .ttl,
+    .process-flow.theme-gray .step-draft .desc{transform:skewX(4deg)}
+  }
+  @media(max-width:520px){
+    .process-flow{grid-template-columns:1fr}
+    .process-flow.theme-gray .step-draft{transform:none}
+  .process-flow.theme-gray .step-draft .step-icon,
+  .process-flow.theme-gray .step-draft .ttl,
+  .process-flow.theme-gray .step-draft .desc{transform:none}
+  }
+
+  /* --- 通用过程链路（简洁版） --- */
+  .process-flow.theme-common .process-step{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    position:relative;overflow:hidden;min-height:172px
+  }
+  .process-flow.theme-common .process-step::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--mint));
+  }
+  .process-flow.theme-common .step-icon{
+    width:42px;height:42px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--mint));color:#fff;
+    display:grid;place-items:center;font-size:19px;margin-bottom:10px
+  }
+  .process-flow.theme-common .num{
+    position:absolute;top:12px;right:12px;font-size:11px;font-weight:800;
+    padding:3px 9px;border-radius:999px;background:var(--accent);color:#fff;opacity:.9
+  }
+  .process-flow.theme-common .ttl{font-size:15.5px;font-weight:800;color:var(--ink);margin-bottom:6px}
+  .process-flow.theme-common .desc{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+  .process-flow.theme-common .step-body{display:flex;flex-direction:column;gap:5px}
+
+  /* ========== 图片点击放大（Lightbox） ========== */
+  .lightbox-img{cursor:zoom-in}
+  #lightbox{
+    position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.92);
+    display:none;align-items:center;justify-content:center;opacity:0;
+    transition:opacity .25s ease
+  }
+  #lightbox.open{display:flex;opacity:1}
+  #lightbox img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  #lightbox .lb-close{
+    position:absolute;top:18px;right:24px;width:40px;height:40px;border-radius:50%;
+    background:rgba(255,255,255,.15);color:#fff;border:none;font-size:26px;line-height:1;
+    cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px);
+    transition:background .2s
+  }
+  #lightbox .lb-close:hover{background:rgba(255,255,255,.3)}
+  #lightbox .lb-nav{
+    position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;
+    border-radius:50%;background:rgba(255,255,255,.15);color:#fff;border:none;font-size:20px;
+    cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px);
+    transition:background .2s
+  }
+  #lightbox .lb-nav:hover{background:rgba(255,255,255,.3)}
+  #lightbox .lb-prev{left:16px}
+  #lightbox .lb-next{right:16px}
+  #lightbox .lb-count{
+    position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+    color:#fff;background:rgba(0,0,0,.45);padding:5px 12px;border-radius:999px;font-size:12px
+  }
+  #lightbox .lb-caption{
+    position:absolute;bottom:50px;left:50%;transform:translateX(-50%);
+    color:#fff;font-size:13px;text-align:center;max-width:80vw;text-shadow:0 1px 4px rgba(0,0,0,.5)
+  }
+  @media(max-width:560px){
+    #lightbox .lb-prev{left:8px}
+    #lightbox .lb-next{right:8px}
+  }
+
+  @media(max-width:860px){
+    .gallery-grid.cols-6,.gallery-grid.cols-5,.gallery-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .gallery-label{font-size:20px}
+  }
+  @media(max-width:560px){
+    .gallery-grid.cols-6,.gallery-grid.cols-5,.gallery-grid.cols-3{grid-template-columns:repeat(2,1fr)}
+    .gallery-label{font-size:18px}
+  }
+
+  /* ========== 滚动渐入动效 ========== */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+  .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
@@ -525,7 +822,7 @@
     </a>
     <nav class="nav-menu" id="navMenu">
       <a href="#about" data-target="about">关于我</a>
-      <a href="#projects" data-target="projects">项目作品</a>
+      <a href="#projects" data-target="projects">作品集</a>
       <a href="#skills" data-target="skills">技能特长</a>
       <a href="#certs" data-target="certs">证书培训</a>
       <a href="#contact" data-target="contact">联系我</a>
@@ -535,7 +832,10 @@
         <span class="lbl">查看简历 ▾</span>
       </button>
       <div class="dropdown" role="menu">
+        <a href="http://localhost:8123/" target="_blank">👁 查看简历（可下载）</a>
+        <a href="http://localhost:8123/" target="_blank">⬇ 下载简历</a>
         <a href="javascript:window.print()">🖨️ 打印 / 另存为 PDF</a>
+        <a href="index.print.html" target="_blank">📄 返回旧版（留底）</a>
       </div>
     </div>
   </header>
@@ -559,7 +859,7 @@
         <span class="chip"><span class="em">●</span>平台认知</span>
       </div>
       <div class="hero-cta">
-        <a href="resume.html" target="_blank" class="btn-dark">⬇ 下载简历</a>
+        <a href="http://localhost:8123/" target="_blank" class="btn-dark">⬇ 下载简历</a>
         <a href="#contact" class="btn-ghost">✉ 联系我</a>
       </div>
       <div class="hero-mini">
@@ -623,23 +923,6 @@
       </div>
     </div>
 
-    <div class="card">
-      <div style="font-weight:800;color:var(--ink);margin-bottom:14px">快速一览</div>
-      <div class="stat-grid">
-        <div class="stat">
-          <div class="v">7+</div>
-          <div class="l">工作台集成模块<br>（选品 / 学习 / 看板…）</div>
-        </div>
-        <div class="stat">
-          <div class="v">2+</div>
-          <div class="l">含 1 个校园协作项目<br>+ 1 个独立作品</div>
-        </div>
-        <div class="stat">
-          <div class="v">即到岗</div>
-          <div class="l">应届 · 电商运营<br>广东本地</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -647,45 +930,90 @@
 <section class="sec" id="projects">
   <div class="sec-head">
     <div>
-      <div class="sec-title"><span class="num">02</span>项目作品</div>
+      <div class="sec-title"><span class="num">02</span>作品集</div>
       <div class="sec-sub" style="margin-top:6px">点击卡片可展开详情。</div>
     </div>
   </div>
   <div class="proj-list">
+    <article class="proj" style="margin-bottom:0">
+      <a href="http://localhost:3210" target="_blank" style="display:block;text-decoration:none;border-radius:12px;overflow:hidden;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(0,0,0,.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 8px rgba(0,0,0,.05)'">
+        <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-workbench-cover.png?v=10" alt="一人工作台" style="width:100%;display:block">
+      </a>
+    </article>
+
     <article class="proj" data-toggle>
       <div class="proj-card">
-        <div class="proj-cover">
-          <div class="cover-ico">🖥️</div>
-          <div class="cover-txt">project cover<br>· 工作台截图 ·</div>
-        </div>
         <div class="proj-body">
           <div class="proj-head">
             <div>
-              <div class="proj-title">
-                「一人工作台」独立搭建
-                <span class="tag">个人项目</span>
-                <span class="tag mint">核心弹药</span>
-              </div>
-              <div class="proj-meta" style="margin-top:4px">2026 · 用 AI 工具从零搭建 · 集成 7 大模块</div>
+              <div class="proj-title">更多作品 · 电商视觉 / 产品海报</div>
+              <div class="proj-meta-small">面膜电商视觉 / 产品海报</div>
             </div>
             <span class="toggle">展开详情</span>
           </div>
-          <div class="proj-sub">用 AI 工具从零搭建的个人运营系统，是数据能力与运营方法论的落地证明 —— 不是简历话术。</div>
-          <div class="proj-chips">
-            <span class="chip-mini">Node.js</span>
-            <span class="chip-mini">飞书 API</span>
-            <span class="chip-mini">AI 摘要</span>
-            <span class="chip-mini">热榜聚合</span>
-          </div>
         </div>
       </div>
-      <div class="proj-list-bullets">
-        <ul>
-          <li>设计「选品跟踪」核算模型：录入 <b>成本 / 售价 / 平台扣点 / 快递 / 佣金</b>，自动算出 <b>毛利、利润率、ROI、盈亏平衡点</b>，用数据辅助选品决策</li>
-          <li>搭建「运营学习看板」沉淀技能 / 指标 / 读书 / 观察，并建立 <b>每日飞书日报自动汇总</b> 机制，把成长可视化</li>
-          <li>集成 AI 资讯、抖音选题、每日建议等模块，提升信息获取与内容选题效率</li>
-          <li>配置常驻守护进程实现 <b>服务崩溃自愈 + 定时提醒</b>（如每日 16:00 健身），体现系统化运营思维</li>
-        </ul>
+      <div class="proj-gallery">
+        <div class="ai-note">
+          <h4>🤖 AI 辅助设计说明</h4>
+          <p>本作品集中部分背景图、场景渲染及文案初稿由 AI 工具辅助生成。AI 在我的工作流中主要用于创意发散、素材探索和效率提升，但核心设计决策、排版布局、文案筛选及最终落地均由我独立完成。所有 AI 生成内容均已按规范进行标识，产品细节与数据以真实拍摄和实际测试为准。</p>
+        </div>
+
+        <!-- 所有项目文字说明集中 -->
+
+        <!-- 通用过程链路 -->
+        <div class="process-flow theme-common">
+          <div class="process-step step-prompt"><i class="step-icon">✎</i><div class="step-body"><span class="num">01</span><div class="ttl">Prompt</div><div class="desc">用中文关键词描述产品风格、光影与核心卖点，控制画面留白与主体位置。</div></div></div>
+          <div class="process-step step-draft"><i class="step-icon">▰</i><div class="step-body"><span class="num">02</span><div class="ttl">AI 初稿</div><div class="desc">通过 AI 生成多组场景底图，筛选构图最稳、光影最统一的方向。</div></div></div>
+          <div class="process-step step-optimize"><i class="step-icon">⚙</i><div class="step-body"><span class="num">03</span><div class="ttl">人工优化</div><div class="desc">叠加真实中文字体、统一比例、去除素材水印、校正色彩与对齐。</div></div></div>
+          <div class="process-step step-final"><i class="step-icon">✓</i><div class="step-body"><span class="num">04</span><div class="ttl">最终成品</div><div class="desc">输出系列主图海报，覆盖主视觉、场景、功效等核心卖点。</div></div></div>
+        </div>
+        <div class="proj-intro">
+          <h5>项目一：面膜电商视觉设计 · 个人练习作品</h5>
+          <p><b>项目背景：</b>以 L'QUALYN 多肽塑颜抚纹提拉膜为练习对象（个人练习，非商用）。目标用户为 20-35 岁关注抗初老、面部紧致的女性，核心诉求是在信息流中「3 秒内建立信任感」。</p>
+          <p><b>设计决策：</b>主色选用蓝白科技风，搭配高质感产品盒与面膜实拍建立专业感；卖点用图标+功效数据分层呈现，降低阅读成本；竖版 3:4 比例适配淘宝/拼多多/抖音小店主图规范。</p>
+        </div>
+
+        <div class="proj-intro">
+          <h5>项目二：面膜 · 商品详情页</h5>
+          <p><b>项目背景：</b>承接主图视觉，将卖点延展为 6 屏详情页长图，解决用户从「感兴趣」到「想下单」的决策链路。</p>
+          <p><b>设计决策：</b>首屏放大功效与价格锚点；中间屏用真人实测、肤感观察、科技成分建立证据链；尾屏用使用步骤降低使用门槛。整页保持同一蓝白色系与字体层级。</p>
+        </div>
+
+        <div class="proj-intro">
+          <h5>项目三：华为 MateBook X Pro 产品海报</h5>
+          <p><b>项目背景：</b>以华为 MateBook X Pro 为练习对象（个人练习，非商用）。目标用户为对轻薄、屏幕、性能敏感的职场人与学生党。</p>
+          <p><b>设计决策：</b>采用深空灰+科技蓝营造高端感；每张海报聚焦一个核心卖点（屏幕、键盘、触控、性能），统一视角与光影形成系列感；信息层级用标题+一句话卖点+icon 三层呈现。</p>
+        </div>
+
+        <!-- 所有图片集中展示 -->
+        <div class="gallery-label">面膜电商视觉设计 · 个人练习作品（AI 辅助生成）</div>
+        <div class="gallery-grid cols-5">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-01.jpg?v=13" alt="主图海报">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-02.jpg?v=13" alt="膜布卖点">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-04.jpg?v=13" alt="功效对比">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-05.jpg?v=13" alt="使用场景">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-06.jpg?v=13" alt="研发背书">
+        </div>
+
+        <div class="gallery-label" style="margin-top:22px">面膜 · 商品详情页（AI 辅助生成）</div>
+        <div class="gallery-grid cols-3">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-detail-01.jpg?v=11" alt="详情页 1">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-detail-02.jpg?v=11" alt="详情页 2">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-detail-03.jpg?v=11" alt="详情页 3">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-detail-04.jpg?v=11" alt="详情页 4">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-detail-05.jpg?v=11" alt="详情页 5">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-detail-06.jpg?v=11" alt="详情页 6">
+        </div>
+
+        <div class="gallery-label" style="margin-top:22px">华为 MateBook X Pro 产品海报 ·（AI 辅助生成）</div>
+        <div class="gallery-grid cols-5">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-matebook-01.jpg?v=11" alt="MateBook 主视觉">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-matebook-02.jpg?v=11" alt="键盘卖点">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-matebook-03.jpg?v=11" alt="屏幕与续航">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-matebook-04.jpg?v=11" alt="触控全面屏">
+          <img class="lightbox-img" onclick="openLightbox(this)" src="images/portfolio/work-matebook-05.jpg?v=11" alt="处理器性能">
+        </div>
       </div>
     </article>
 
@@ -700,27 +1028,22 @@
       <div class="sec-sub" style="margin-top:6px">围绕「数据 + 内容 + 平台」搭建核心能力。</div>
     </div>
   </div>
-  <div class="skill-grid">
-    <div class="skill">
-      <div class="ico ic1">📊</div>
-      <div class="name">数据分析</div>
-      <div class="desc">
-        <span class="pill">数据透视表</span>
-        <span class="pill">VLOOKUP</span>
-        <span class="pill">占比 / 排序</span>
-        <span class="pill">切片器</span>
-        <br>基础数据可视化 + 结构化思维
-      </div>
+  <div class="skill-cert-list">
+    <div class="cert">
+      <div class="ico c1">O</div>
+      <div><div class="t">熟练掌握 Office 办公软件</div></div>
     </div>
-    <div class="skill">
-      <div class="ico ic3">🎬</div>
-      <div class="name">内容运营</div>
-      <div class="desc">
-        <span class="pill">抖音算法</span>
-        <span class="pill">爆款拆解</span>
-        <span class="pill">选题</span>
-        <br>理解推荐逻辑，能拆解爆款结构
-      </div>
+    <div class="cert">
+      <div class="ico c2">P</div>
+      <div><div class="t">PS</div></div>
+    </div>
+    <div class="cert">
+      <div class="ico c3">E</div>
+      <div><div class="t">Excel</div></div>
+    </div>
+    <div class="cert">
+      <div class="ico c4">W</div>
+      <div><div class="t">Word</div></div>
     </div>
   </div>
 </section>
@@ -730,22 +1053,20 @@
   <div class="sec-head">
     <div>
       <div class="sec-title"><span class="num">04</span>证书 / 培训</div>
-      <div class="sec-sub" style="margin-top:6px">以下为已规划待补充方向。带 ★ 标记的为占位/建议补强项。</div>
+      <div class="sec-sub" style="margin-top:6px">已取得的证书与培训。</div>
     </div>
   </div>
   <div class="cert-list">
     <div class="cert">
       <div class="ico">1</div>
       <div>
-        <div class="t">计算机等级考试<span class="hl">★占位</span></div>
-        <div class="s">建议补充具体级别（计算机一级 / 二级）</div>
+        <div class="t">计算机一级证书</div>
       </div>
     </div>
     <div class="cert">
       <div class="ico">2</div>
       <div>
-        <div class="t">电商 / 运营线上课程证书<span class="hl">★建议补 1–2 个</span></div>
-        <div class="s">如平台官方运营课 / 数据分析课</div>
+        <div class="t">网店运营推广职业技能等级证书（初级）</div>
       </div>
     </div>
   </div>
@@ -764,9 +1085,7 @@
       <div class="eval-card">
         <h3>📝 自我评价</h3>
         <ul>
-          <li><span>数据敏感、执行力强，习惯用工具把重复劳动系统化（一人工作台即自证）</span></li>
-          <li><span>对电商 / 跨境电商运营有清晰兴趣与方法论储备，能独立做选品核算与内容选题</span></li>
-          <li><span>学习主动、上手快，计算机网络专业背景带来结构化思维；目标明确，愿从助理岗踏实成长</span></li>
+          <li><span>对待工作认真细致，具备良好的信息整理与数据基础处理能力。学习接受能力较强，能够快速熟悉平台运营流程，执行力强，乐于配合团队完成内容编辑、活动协助、数据统计等运营辅助工作。做事踏实有耐心，善于沟通，对运营工作抱有浓厚兴趣，愿意主动积累经验，适配岗位各项辅助工作需求。</span></li>
         </ul>
       </div>
     </div>
@@ -808,6 +1127,16 @@
   本页面纯静态 HTML，离线可打开。
 </div>
 
+<!-- ========== 图片放大 Lightbox ========== -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="图片预览">
+  <button class="lb-close" aria-label="关闭" onclick="closeLightbox()">×</button>
+  <button class="lb-nav lb-prev" aria-label="上一张" onclick="changeLightbox(-1)">‹</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lb-caption" id="lightboxCaption"></div>
+  <div class="lb-count" id="lightboxCount"></div>
+  <button class="lb-nav lb-next" aria-label="下一张" onclick="changeLightbox(1)">›</button>
+</div>
+
 <!-- ========== 悬浮气泡 ========== -->
 <div class="floater" id="floater">
   <div class="floater-bubble" id="helloBubble">
@@ -821,7 +1150,7 @@
       <span>想了解我哪一面?</span>
     </div>
     <a href="javascript:void(0)" id="copyEmail"><span class="ico">✉</span><span>复制我的邮箱</span></a>
-    <a href="resume.html" target="_blank"><span class="ico">⬇</span><span>下载简历 PDF</span></a>
+    <a href="http://localhost:8123/" target="_blank"><span class="ico">⬇</span><span>下载简历</span></a>
     <a href="#top"><span class="ico">↑</span><span>回到顶部</span></a>
   </div>
   <button class="floater-toggle" id="floaterToggle" aria-label="聊一聊"></button>
@@ -833,7 +1162,7 @@
   // ========== 菜单锚点激活 ==========
   const navMenu = document.getElementById('navMenu');
   const menuLinks = navMenu.querySelectorAll('a');
-  const sections = ['about','projects','skills','certs','contact'].map(id => document.getElementById(id));
+  const sections = ['about','projects','skills','dataviz','certs','contact'].map(id => document.getElementById(id));
   function updateActiveMenu(){
     const scrollY = window.scrollY + 120;
     let current = sections[0]?.id;
@@ -863,6 +1192,22 @@
       card.querySelector('.toggle').textContent = card.classList.contains('expanded') ? '收起' : '展开详情';
     });
   });
+
+  // ========== 滚动渐入动效 ==========
+  document.querySelectorAll('.sec, .proj, .skill, .cert, .contact-card, .eval-card, .ai-note').forEach(el => el.classList.add('reveal'));
+  if ('IntersectionObserver' in window){
+    const revealObs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
 
   // ========== 联系信息复制 / 唤起 ==========
   const toast = document.getElementById('toast');
@@ -895,6 +1240,22 @@
       window.location.href = 'mailto:' + mail + '?subject=面试邀约%20-%20王梓宇&body=您好王梓宇同学，';
     });
   });
+
+  // ========== 数据能力进度条动画 ==========
+  const bars = document.querySelectorAll('.bar-fill');
+  if ('IntersectionObserver' in window){
+    const barObs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.style.width = e.target.dataset.w + '%';
+          barObs.unobserve(e.target);
+        }
+      });
+    },{threshold:.25});
+    bars.forEach(b=>barObs.observe(b));
+  } else {
+    bars.forEach(b=> b.style.width = b.dataset.w + '%');
+  }
 
   // ========== 悬浮气泡 ==========
   const floater = document.getElementById('floater');
@@ -931,6 +1292,63 @@
       floater.classList.remove('collapsed');
     }
   });
+
+  // ========== 图片点击放大 Lightbox ==========
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxCount = document.getElementById('lightboxCount');
+  let lbImages = [];
+  let lbIndex = 0;
+
+  function updateLightboxImages(){
+    lbImages = Array.from(document.querySelectorAll('.lightbox-img'));
+  }
+
+  function openLightbox(imgEl){
+    updateLightboxImages();
+    lbIndex = lbImages.indexOf(imgEl);
+    if (lbIndex < 0) lbIndex = 0;
+    showLightboxAt(lbIndex);
+  }
+
+  function showLightboxAt(idx){
+    const img = lbImages[idx];
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || '';
+    lightboxCaption.textContent = img.alt || '';
+    lightboxCount.textContent = (idx + 1) + ' / ' + lbImages.length;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  function changeLightbox(dir){
+    if (lbImages.length <= 1) return;
+    lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+    showLightboxAt(lbIndex);
+  }
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') changeLightbox(-1);
+    if (e.key === 'ArrowRight') changeLightbox(1);
+  });
+
+  window.openLightbox = openLightbox;
+  window.closeLightbox = closeLightbox;
+  window.changeLightbox = changeLightbox;
 </script>
 
 </body>
