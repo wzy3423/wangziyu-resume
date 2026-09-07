@@ -30,30 +30,39 @@
   .hero .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--accent);background:rgba(30,111,255,.1);padding:6px 14px;border-radius:999px;margin-bottom:16px}
   .hero h1{font-size:40px;letter-spacing:1px;margin-bottom:14px}
   .hero p{color:var(--sub);font-size:16px;max-width:640px;margin:0 auto}
-  .live-btn{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:15px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--accent),var(--indigo));padding:12px 26px;border-radius:999px;box-shadow:0 8px 20px rgba(30,111,255,.28);transition:.2s}
-  .live-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(30,111,255,.36)}
-  .live-note{margin-top:12px;font-size:12.5px;color:var(--sub)}
 
   /* 截图 */
   .shot{margin:30px 0 8px}
   .shot img{width:100%;border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);display:block}
   .shot .cap{text-align:center;color:var(--sub);font-size:13px;margin-top:12px}
 
-  /* 功能网格 */
-  .sec-title{font-size:24px;font-weight:800;margin:42px 0 18px;text-align:center}
+  /* 区块标题 */
+  .sec-title{font-size:24px;font-weight:800;margin:48px 0 18px;text-align:center}
+  .sec-sub{text-align:center;color:var(--sub);font-size:14px;margin:-10px 0 22px}
+
+  /* 6 格功能 */
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media(max-width:720px){.grid{grid-template-columns:1fr}}
-  .fn{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+  @media(max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.grid{grid-template-columns:1fr}}
+  .fn{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);transition:.2s}
+  .fn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(30,111,255,.16)}
   .fn .ico{font-size:26px;margin-bottom:10px}
   .fn h3{font-size:16px;margin-bottom:6px}
   .fn p{font-size:13.5px;color:var(--sub)}
+  .fn .badge{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);background:rgba(30,111,255,.08);padding:2px 8px;border-radius:999px;margin-top:8px}
 
-  /* 亮点 */
-  .points{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
-  @media(max-width:720px){.points{grid-template-columns:1fr}}
-  .pt{background:var(--card);border-left:4px solid var(--mint);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
-  .pt h4{font-size:15px;margin-bottom:4px}
-  .pt p{font-size:13.5px;color:var(--sub)}
+  /* 自动化流程 */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  @media(max-width:720px){.flow{grid-template-columns:repeat(2,1fr)}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);position:relative}
+  .step .num{position:absolute;top:14px;right:16px;font-size:11px;font-weight:800;color:var(--accent);background:rgba(30,111,255,.1);padding:2px 8px;border-radius:999px}
+  .step .ico{font-size:22px;margin-bottom:8px}
+  .step h4{font-size:14.5px;margin-bottom:4px}
+  .step p{font-size:12.5px;color:var(--sub)}
+
+  /* 技术栈 */
+  .stack{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px}
+  .stack span{font-size:12.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);padding:6px 12px;border-radius:999px;box-shadow:var(--shadow)}
 
   /* 页脚 */
   .foot{text-align:center;padding:42px 0 60px;color:var(--sub);font-size:13px;line-height:1.9}
@@ -70,22 +79,79 @@
   <span class="tag">个人项目 · 2026</span>
   <h1>一人工作台</h1>
   <p>用 AI 工具从零搭建的个人工作系统，把信息获取、内容产出与文档管理串成一条自动化流水线，支撑电商运营学习与日常效率。</p>
-  <a class="live-btn" href="https://laptop-4m1f2lom.tailale9ad.ts.net/" target="_blank">▶ 打开实时工作台</a>
-  <div class="live-note">（需本机开机且 Tailscale 在线时可用；如打不开，下方为功能介绍）</div>
 </header>
 
-
 <section class="wrap">
-  <div class="sec-title">核心功能模块</div>
-  <div class="grid" style="grid-template-columns:repeat(2,1fr);">
-    <div class="fn"><div class="ico">📰</div><h3>AIHOT 资讯</h3><p>选取过去 24 小时精选资讯与当前最热话题。</p></div>
-    <div class="fn"><div class="ico">📝</div><h3>成长反思</h3><p>配套复盘模块，沉淀个人成长轨迹。</p></div>
+  <div class="shot">
+    <img src="images/portfolio/work-workbench-ui.png?v=1" alt="一人工作台主界面截图">
+    <div class="cap">主界面实测：左栏 4 个模块导航（长期工作 · 自动化），主区为 AI 资讯实时流</div>
   </div>
 </section>
 
+<section class="wrap">
+  <div class="sec-title">核心模块</div>
+  <div class="sec-sub">从信息获取、内容产出到任务自愈监控，覆盖日常运营的核心工作流</div>
+  <div class="grid">
+    <div class="fn">
+      <div class="ico">📰</div>
+      <h3>AIHOT 资讯</h3>
+      <p>每日 AI 大模型与产品动态，自动聚合过去 24h 精选。</p>
+      <span class="badge">实时</span>
+    </div>
+    <div class="fn">
+      <div class="ico">🔥</div>
+      <h3>抖音选题</h3>
+      <p>抖音热榜 + 抖音电商爆款选题，附选题文案与转化思路。</p>
+      <span class="badge">每日更新</span>
+    </div>
+    <div class="fn">
+      <div class="ico">💡</div>
+      <h3>每日建议</h3>
+      <p>AI 给出的当日 3 条小建议 + 我的反馈，沉淀个人复盘轨迹。</p>
+      <span class="badge">每日打卡</span>
+    </div>
+    <div class="fn">
+      <div class="ico">🤖</div>
+      <h3>自动化状态</h3>
+      <p>查看所有定时任务（资讯、热榜、飞书汇总）的执行日志。</p>
+      <span class="badge">任务自愈</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-title">自动化流水线</div>
+  <div class="sec-sub">定时拉取 → AI 摘要 → 飞书汇总 → 个人反馈，一气呵成</div>
+  <div class="flow">
+    <div class="step">
+      <span class="num">01</span>
+      <div class="ico">⏰</div>
+      <h4>定时拉取</h4>
+      <p>每天固定时段调 AIHOT、热榜、日记 API。</p>
+    </div>
+    <div class="step">
+      <span class="num">02</span>
+      <div class="ico">🧠</div>
+      <h4>AI 摘要</h4>
+      <p>用大模型提炼关键信息，筛掉噪声与重复。</p>
+    </div>
+    <div class="step">
+      <span class="num">03</span>
+      <div class="ico">📄</div>
+      <h4>飞书汇总</h4>
+      <p>按日 / 周 / 月 / 年结构写入飞书云文档。</p>
+    </div>
+    <div class="step">
+      <span class="num">04</span>
+      <div class="ico">✅</div>
+      <h4>我的反馈</h4>
+      <p>每日建议回流到工作台，沉淀个人成长轨迹。</p>
+    </div>
+  </div>
+</section>
 
 <footer class="foot wrap">
-  这是「一人工作台」的在线介绍页（静态快照），实时系统运行于本地。<br>
+  这是「一人工作台」的静态介绍页（运行于本地，可通过 Tailscale 暴露访问）。<br>
   返回 <a href="index.html">王梓宇 · 个人简历</a>
 </footer>
 </body>
