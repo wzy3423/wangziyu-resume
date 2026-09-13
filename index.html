@@ -463,6 +463,11 @@
   .eval-card li:last-child{border-bottom:none}
   .eval-card li::before{content:"✓";color:var(--accent);font-weight:800;flex-shrink:0;margin-top:2px}
 
+  /* ========== 微信二维码 ========== */
+  .wechat-card{text-align:center}
+  .wechat-card img{max-width:180px;width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  .wechat-card .hint{font-size:12.5px;color:var(--sub);margin-top:10px}
+
   /* ========== Footer ========== */
   .footer{
     text-align:center;padding:36px 18px 56px;color:var(--sub);font-size:12.5px;
@@ -1108,6 +1113,13 @@
           <span class="copy">复制</span>
         </div>
       </div>
+    </div>
+  </div>
+  <div style="max-width:var(--maxw);margin:24px auto 0;padding:0 28px">
+    <div class="contact-card wechat-card">
+      <h3>💬 微信联系</h3>
+      <img src="images/wechat-qr.jpg" alt="微信二维码">
+      <div class="hint">扫码添加微信，备注“应聘/合作”</div>
     </div>
   </div>
 </section>
