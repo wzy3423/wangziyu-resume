@@ -263,12 +263,16 @@
   .fc-1{top:50%;right:6%;width:130px;animation-delay:1.2s}
   .fc-2{bottom:14%;left:18%;width:120px;animation-delay:.6s}
   .fc-3{top:38%;right:30%;width:110px;animation-delay:1.8s}
+  .fc-wechat{bottom:10%;left:16%;width:150px;flex-direction:column;text-align:center;gap:6px;padding:14px;cursor:pointer;animation-delay:2.4s}
+  .fc-wechat img{width:72px;height:72px;border-radius:12px;border:1px solid var(--line);object-fit:cover}
+  .fc-wechat .t{font-size:13px}
+  .fc-wechat .s{font-size:11px}
 
   @media(max-width:980px){
-    .fc-3,.fc-2{display:none}
+    .fc-3,.fc-2,.fc-wechat{display:none}
   }
   @media(max-width:520px){
-    .fc-1,.fc-2,.fc-3{display:none}
+    .fc-1,.fc-2,.fc-3,.fc-wechat{display:none}
     .glow{width:360px;height:360px}
   }
 
@@ -899,6 +903,13 @@
         <div>
           <div class="t">7 大模块</div>
           <div class="s">工作台集成</div>
+        </div>
+      </div>
+      <div class="float-card fc-wechat" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" title="点击跳转到微信二维码">
+        <img src="images/wechat-qr.jpg" alt="微信二维码">
+        <div>
+          <div class="t">微信联系</div>
+          <div class="s">扫码添加 · 应聘/合作</div>
         </div>
       </div>
     </div>
