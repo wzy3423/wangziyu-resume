@@ -2,3 +2,4 @@
 *.cornerbak
 __pycache__/
 *.pyc
+gen_cover.py

@@ -64,6 +64,12 @@
   .stack{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px}
   .stack span{font-size:12.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);padding:6px 12px;border-radius:999px;box-shadow:var(--shadow)}
 
+  /* 数据看板 */
+  .board{display:block;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);position:relative;transition:.25s}
+  .board:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(30,111,255,.18)}
+  .board img{width:100%;height:auto;display:block}
+  .board-cta{position:absolute;right:18px;bottom:18px;background:var(--accent);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(30,111,255,.35)}
+
   /* 页脚 */
   .foot{text-align:center;padding:42px 0 60px;color:var(--sub);font-size:13px;line-height:1.9}
   .foot a{color:var(--accent);font-weight:600}
@@ -116,6 +122,18 @@
       <p>查看所有定时任务（资讯、热榜、飞书汇总）的执行日志。</p>
       <span class="badge">任务自愈</span>
     </div>
+    <a class="fn" href="taobao-monitor.html" target="_blank">
+      <div class="ico">📊</div>
+      <h3>淘宝市场监控</h3>
+      <p>类目 / 价格带 / 品牌 / 商品明细的可视化看板，附 9 段市场分析报告。</p>
+      <span class="badge">数据看板</span>
+    </a>
+    <a class="fn" href="taobao-monitor.html" target="_blank">
+      <div class="ico">🧭</div>
+      <h3>数据化选品</h3>
+      <p>用「类目—价格带—品牌—商品」四层视角，训练可复用的选品判断。</p>
+      <span class="badge">选品方法</span>
+    </a>
   </div>
 </section>
 
@@ -148,6 +166,15 @@
       <p>每日建议回流到工作台，沉淀个人成长轨迹。</p>
     </div>
   </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-title">数据看板 Demo</div>
+  <div class="sec-sub">把商品库整理成一套可视化市场监控看板，训练「类目 — 价格带 — 品牌 — 商品」的数据化选品视角</div>
+  <a class="board" href="taobao-monitor.html" target="_blank">
+    <img src="images/portfolio/work-taobao-cover.png?v=1" alt="淘宝市场监控看板">
+    <span class="board-cta">打开交互式看板 →</span>
+  </a>
 </section>
 
 <footer class="foot wrap">
